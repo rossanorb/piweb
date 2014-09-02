@@ -93,7 +93,7 @@ input[type="button"]:hover {
 
 
 header{
-    background-image: url("images/bkg_header.png");
+    background-image: url("/images/bkg_header.png");
     height: 131px;
 }
 
@@ -345,7 +345,7 @@ a{
 
 
 footer{
-    background-image: url("images/bkg_footer.png");
+    background-image: url("/images/bkg_footer.png");
     background-attachment: scroll;
     background-repeat: repeat;
     min-height: 293px;
