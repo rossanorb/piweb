@@ -2,6 +2,6 @@
 
 Class User{
     public function index(){
-        
-    }
+
+}
 }
