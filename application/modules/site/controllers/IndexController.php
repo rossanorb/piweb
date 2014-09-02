@@ -9,7 +9,7 @@ class Site_IndexController extends Zend_Controller_Action{
          //$user = new Application_Model_User();
          //var_dump($user);
          
-         $user_clinica = new User();
+        
          
     }
     
