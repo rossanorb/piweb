@@ -370,8 +370,7 @@ footer #links div{
 
 
 
-.clearFix:after {
-    content: ".";
+.clearFix:after {    
     display: block;
     height: 0;
     clear: both;
