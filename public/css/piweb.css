@@ -36,7 +36,7 @@ a:hover{
 
 .dropdown select {
     color:white;
-    background: url("images/arrowdown.gif") no-repeat scroll 88% center #49809C;  /* Imagem de BG*/
+    background: url("/images/arrowdown.gif") no-repeat scroll 88% center #49809C;  /* Imagem de BG*/
     background-position: 88% center;  /*Posição da imagem do background*/    
     border: 0 !important;  /*Remove bordas*/
     text-indent: 5px;
@@ -114,7 +114,7 @@ a{
 
 
 #arrow{    
-    background-image: url("images/arrow.png");
+    background-image: url("/images/arrow.png");
     background-repeat: no-repeat;
     float:left;
     width:11px;
@@ -181,9 +181,9 @@ a{
 
 #leftContent #info{
     height: 313px;
-    background: url(images/img_top_left.png) top left no-repeat,
-                url(images/img_bottom_left.png) bottom left no-repeat,
-                url(images/img_top_right.png) top right no-repeat;    
+    background: url(/images/img_top_left.png) top left no-repeat,
+                url(/images/img_bottom_left.png) bottom left no-repeat,
+                url(/images/img_top_right.png) top right no-repeat;    
 }
 
 #infoContainer{
@@ -212,18 +212,18 @@ a{
 }
 
 #infoContainer #info1{
-    background-image: url("images/info_bkg1.png");
+    background-image: url("/images/info_bkg1.png");
     background-repeat: no-repeat;    
 }
 
 #infoContainer #info2{
-    background-image: url("images/info_bkg2.png");
+    background-image: url("/images/info_bkg2.png");
     background-repeat: no-repeat;
 }
 
 
 #infoContainer #info3{    
-    background-image: url("images/info_bkg3.png");
+    background-image: url("/images/info_bkg3.png");
     background-repeat: no-repeat;     
 }
 
@@ -247,9 +247,9 @@ a{
     min-height: 355px;    
     margin-bottom: 30px;
     padding: 50px;
-    background: url(images/img_top_left.png) top left no-repeat,
-                url(images/img_bottom_left.png) bottom left no-repeat,
-                url(images/img_top_right.png) top right no-repeat;      
+    background: url(/images/img_top_left.png) top left no-repeat,
+                url(/images/img_bottom_left.png) bottom left no-repeat,
+                url(/images/img_top_right.png) top right no-repeat;      
 }
 
 .info_clinica{
