@@ -7,8 +7,8 @@
 $this->headTitle()->append('Agenda Fácil');
 $this->headTitle()->setSeparator(' - ');
 $this->headMeta()->headMeta ('Rossano Bavaresco', 'author');
-$this->headLink()->setSeparator(PHP_EOL)->prependStylesheet($this->baseUrl('css/piweb.css'));
-//$this->headScript ()->setSeparator(PHP_EOL)->prependFile($this->baseUrl('js/jquery/jquery-1.6.1.min.js') );
+$this->headLink()->setSeparator(PHP_EOL)->appendStylesheet($this->baseUrl('/css/piweb.css'));
+//$this->headScript ()->setSeparator(PHP_EOL)->appendFile($this->baseUrl('/js/jquery/jquery-1.6.1.min.js') );
 
 
 echo $this->headTitle(),PHP_EOL;
@@ -43,7 +43,7 @@ echo $this->headScript();
             </header>
             
             <div id="mainContent">
-            <?php   ?>
+            <?php echo $this->layout()->content ?>
             </div>
             
             <footer>
