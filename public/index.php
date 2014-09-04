@@ -10,7 +10,7 @@ defined('APPLICATION_ENV') || define('APPLICATION_ENV', (getenv('APPLICATION_ENV
 
 // Ensure library/ is on include_path
 set_include_path(implode(PATH_SEPARATOR, array(
-    realpath(APPLICATION_PATH . '../../library'),
+    realpath(APPLICATION_PATH . '/../library'), // alterado aqui para adaptar a hospesagem
     get_include_path(),
 )));
 
