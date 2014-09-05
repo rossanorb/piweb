@@ -2,9 +2,7 @@
 
 class Form_Busca extends Zend_Form{
     
-    public function init() {
-        $this->setName('busca');
-        $this->setMethod('post');        
+    public function init() {    
         
         $options = array();
         $especialidades = new Model_DbTable_especialidades();        

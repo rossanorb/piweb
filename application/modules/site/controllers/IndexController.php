@@ -27,6 +27,10 @@ class Site_IndexController extends Zend_Controller_Action{
     
     public function buscaAction(){
         
-    }    
+    }
+    
+    public function cadastreseAction(){
+        $this->view->form = new Form_Cliente();
+    }
     
 }
