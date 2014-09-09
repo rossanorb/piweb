@@ -66,12 +66,23 @@ class Form_Cliente extends Zend_Form{
             'label'=>'Bairro',
             'required'=>false
         ));
-
-        $this->addElement('select','uf',array(
-            'label'=>'UF',
-            'required'=>false,
-            'MultiOptions'=>array('1'=>'RS','2'=>'SP','3'=>'RJ','4'=>'SC')
-        ));
+        
+        $options = array();
+        
+        $uf = new Model_DbTable_uf();
+        $ufs = $uf->getUFs();        
+        foreach($ufs as $row){
+            $options[$row['id_uf']] = $row['uf'];
+        }    
+        
+        
+        $select = new Zend_Form_Element_Select('uf');
+        $select->setLabel('UF');
+        $select->addDecorators(array(
+             'ViewHelper','Errors',array('HtmlTag', array('tag' => 'div','class'=>'uf'))
+        ));        
+        $select->addMultiOptions($options);
+        $this->addElement($select);
         
         $this->addElement('select','cidade',array(
             'label'=>'cidade',
