@@ -329,6 +329,11 @@ a{
                 url(/images/img_top_right.png) top right no-repeat;      
 }
 
+form ul.errors{
+    color:red;
+    list-style-type: none;
+}
+
 .info_clinica{
     float: left;
     font-family: Arial;

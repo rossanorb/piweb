@@ -4,11 +4,14 @@
     
 <?php 
     
-$this->headTitle()->append('Agenda Fácil');
+$this->headTitle()->prepend('Agenda Fácil');
 $this->headTitle()->setSeparator(' - ');
 $this->headMeta()->headMeta ('Rossano Bavaresco', 'author');
-$this->headLink()->setSeparator(PHP_EOL)->appendStylesheet($this->baseUrl('/css/piweb.css'));
-//$this->headScript ()->setSeparator(PHP_EOL)->appendFile($this->baseUrl('/js/jquery/jquery-1.6.1.min.js') );
+$this->headLink()->setSeparator(PHP_EOL)->prependStylesheet($this->baseUrl('/css/piweb.css'));
+
+$this->headScript()->setSeparator(PHP_EOL)->prependFile($this->baseUrl('/js/site.js'));
+$this->headScript()->setSeparator(PHP_EOL)->prependFile($this->baseUrl('/js/jquery.mask.js'));
+$this->headScript()->setSeparator(PHP_EOL)->prependFile($this->baseUrl('/js/jquery-1.11.1.min.js'));
 
 
 echo $this->headTitle(),PHP_EOL;

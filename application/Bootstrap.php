@@ -20,7 +20,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap{
                 'namespace' => '',
              ));
 
-             $autoloader->addResourceType( 'model', 'models', 'Model')                        
+             $autoloader->addResourceType( 'model', 'models/', 'Model')                        
                         ->addResourceType('form', 'forms/', 'Form');
              return $autoloader;
         }    
