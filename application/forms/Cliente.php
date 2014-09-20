@@ -8,7 +8,7 @@ class Form_Cliente extends Zend_Form{
         parent::__construct($options);        
     }
     
-    public function setIdUF($UfId){
+    public function setIdUF($UfId = 7){
         $this->UfId = $UfId;
     }
     
