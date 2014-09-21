@@ -66,28 +66,59 @@ class Site_IndexController extends Zend_Controller_Action{
                 $this->view->form->setIdUF($formFields['uf']);                        
             }
             $this->view->form->generate();
+            
             if ($this->view->form->isValid($formFields)) {
+                
                 if($this->insertCliente($formFields)){ // se inseriu, tenta logar
                     
                     $pacientes = new Model_DbTable_pacientes();
                     if($pacientes->authenticate($formFields)){ // se logar redireciona para tela de consultas do paciente
-                        $this->_redirect('site/paciente/'); // redireciona para tela do paciente   
-                    }else{
-                      'print ocorreu um erro ao tentar logar';
+                      $this->_redirect('site/paciente/'); // redireciona para tela do paciente   
+                    }else{                      
+                      $this->_redirect('site/index/login/auth/erro');
                     }
                     
                 }else{
-                    print 'erro ao inserir';
-                    $this->_redirect('/');
+                    print 'ocorreu um erro ao cadastrar';
+                    //$this->_redirect('site/index/login');
                 }
                 
             } else {
                $this->view->form->populate($formFields);   // formulário inválido
             }
+            
         }else{
            $this->view->form = new Form_Cliente();
            $this->view->form->generate();
         }       
+        
+    }
+    
+    public function loginAction(){
+        
+        if( $this->_request->getParam('auth') == 'erro')
+            $this->view->erro = ' - usuário ou senha inválidos';        
+        
+        if($this->_request->isPost()){
+            $this->view->form = new Form_LoginCliente();
+            $formFields = $this->_request->getPost();
+            if($this->view->form->isValid($formFields)){
+                
+                    $pacientes = new Model_DbTable_pacientes();
+                    
+                    if($pacientes->authenticate($formFields)){ // se logar redireciona para tela de consultas do paciente
+                        $this->_redirect('site/paciente/'); // redireciona para tela do paciente   
+                    }else{
+                       $this->_redirect('site/index/login/auth/erro');
+                    }
+                
+            }
+            
+            $this->view->form->populate($formFields);
+            
+        }else{
+            $this->view->form = new Form_LoginCliente();                         
+        }
         
     }    
     
@@ -95,11 +126,7 @@ class Site_IndexController extends Zend_Controller_Action{
         $this->_helper->layout->disableLayout();
         $this->_helper->view->render->setNoRender();
         
-    }
-    
-    public function loginAction(){
-        
-    }
+    }       
     
     public function logoutAction() {
             Zend_Auth::getInstance()->clearIdentity();
