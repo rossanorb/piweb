@@ -319,6 +319,15 @@ a{
     margin-top: 5px;
 }
 
+#mainContent .info{
+    position: relative;
+    font-family: Arial;
+    font-size: 18px;
+    color: #669EB4;
+    //margin-left: 485px;
+    margin-top: 5px;    
+}
+
 .content{
     color:#49809c;
     min-height: 355px;    
@@ -327,6 +336,43 @@ a{
     background: url(/images/img_top_left.png) top left no-repeat,
                 url(/images/img_bottom_left.png) bottom left no-repeat,
                 url(/images/img_top_right.png) top right no-repeat;      
+}
+
+#login_cliente{
+    height: auto;
+    width: 480px;    
+    margin-left: 350px;
+    padding: inherit;
+    text-align: left;
+    background-color: #e6feff;
+    border: solid 1px #669EB4;
+    margin-bottom: -30px;
+}
+
+#login_cliente_title{
+    width: 580px;    
+    margin-left: 350px;
+    text-align: left;
+    background-color: #669EB4;
+    border: solid 1px #669EB4;
+    border-radius: 4px 4px 0 0;
+    color:#fff;
+    text-align: center;
+    font-size: 25px;
+}
+
+#esqueci_minha_senha{
+    width: 580px;    
+    margin-left: 350px;
+    text-align: left;
+    color:#fff;
+    text-align: center;
+    font-size: 15px;    
+}
+
+form ul.errors{
+    color:red;
+    list-style-type: none;
 }
 
 .info_clinica{

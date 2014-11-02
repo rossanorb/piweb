@@ -2,17 +2,12 @@
 
 $(document).ready(function(){
     
-    // carrega cidades somente se alguma uf estiver selecionada
-//   if( $('select#uf').val() > 0 ){       
-//     AjaxRequest('/site/index/combo/name/'+$('select#uf').attr('name')+'/id/'+ $('select#uf').val(),'GET','#cidade-element');
-//   }
-//  
     
     $('select#uf').change(function(){
         AjaxRequest('/site/index/combo/name/'+$('select#uf').attr('name')+'/id/'+ $('select#uf').val(),'GET','#cidade-element');
     })       
     
-
+/*
     $('#cliente').submit(function(event){
         
         $('dd').find('p').each(function(){
@@ -102,6 +97,6 @@ $(document).ready(function(){
         
        return true;
     });    
-    
+*/    
     
 });
