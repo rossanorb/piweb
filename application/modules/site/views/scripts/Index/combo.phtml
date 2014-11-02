@@ -1,0 +1,23 @@
+<?php
+    if($this->id):
+?>
+
+
+    <select id="<?php echo $this->properties ?>" name="<?php echo $this->properties ?>">    
+        <?php foreach ($this->combo as $id => $name ): ?>    
+        <option value="<?php echo $id ?>"><?php echo $name ?></option>    
+        <?php endforeach; ?>    
+    </select>
+
+
+<?php
+    else:
+?>
+
+    <select id="<?php echo $this->properties ?>" name="<?php echo $this->properties ?>"> 
+        <option value=""></option>
+    </select>
+
+<?php    
+endif;
+?>
