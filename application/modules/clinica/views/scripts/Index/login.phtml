@@ -1,0 +1,15 @@
+<?php $this->headScript()->setSeparator(PHP_EOL)->prependFile($this->baseUrl('/js/site/index/login.js')); ?>
+<div  align="center" class="columnContainer clearFix">
+<span class="info">
+    <p>área restrita para clínicas e médicos, </p><p>se você ainda não é cadastrado, <a href="<?php echo $this->baseUrl('/site/clinica/cadastro') ?>"> cadastre-se aqui</a></p>
+</span></div>
+<div class="columnContainer clearFix">
+    <div class="content">       
+        <div id="login_cliente_title">login <?php echo $this->erro ?></div>
+        <div id="login_cliente" >
+        <?php echo $this->form ?>    
+        </div>
+        <div id="esqueci_minha_senha"><a href="">esqueci minha senha</a> <?php echo $this->erro ?></div>
+    </div>    
+</div>
+<div class="columnContainer clearFix"></div> 
