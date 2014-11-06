@@ -16,7 +16,7 @@ class Form_LoginClinica extends Zend_Form{
         
         // ***** Senha *******************************************        
         $senha = new Zend_Form_Element_Password('senha');
-        $senha->setLabel('Senha')                 
+        $senha->setLabel('senha')                 
                 ->setRequired(true)
                 ->addFilters(array('StripTags','StringTrim' ))                
                 ->addValidator('stringLength', true, array(6, 20))
@@ -25,7 +25,7 @@ class Form_LoginClinica extends Zend_Form{
         $this->addElement($senha);        
 
         $this->addElement('submit','submit',array('label'=>'Login'));
-        $this->setAction('/clinica/index/login')->setMethod('post');         
+        $this->setAction('/site/clinica/login')->setMethod('post');         
         
     }
     

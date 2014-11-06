@@ -26,9 +26,10 @@ class Clinica_IndexController extends Zend_Controller_Action{
          $this->_helper->layout->setLayout('authclinica');
     }
     
-    public function loginAction(){
-        $this->view->form = new Form_LoginClinica();
+    public function indexAction(){
+        $this->view->mensagem = 'logado';
     }
+       
             
     
     

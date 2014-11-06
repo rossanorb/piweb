@@ -54,6 +54,26 @@ class Site_ClinicaController extends Zend_Controller_Action{
         $filename = end($arr);
         return $filename;
     }
+    
+    public function loginAction(){
+        $this->view->form = new Form_LoginClinica();
+        
+        if($this->_request->isPost()){
+            $formFields = $this->_request->getPost();
+            if($this->view->form->isValid($formFields)){
+                 $clinicas = new Model_DbTable_clinicas();
+                 if($clinicas->authenticate($formFields)){
+                     $this->_redirect('/clinica/index/');
+                 }else{
+                     $this->_redirect('/site/clinica/login');
+                 }
+            }
+            $this->view->form->populate($formFields);
+        }else{
+            
+        }
+        
+    }    
         
     
     
