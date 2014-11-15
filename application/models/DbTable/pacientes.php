@@ -1,7 +1,8 @@
 <?php
 class Model_DbTable_pacientes extends Zend_Db_Table_Abstract{
     protected $_name = 'pacientes';
-    
+    private $db;
+
     public function init() {
         $this->db = $this->getAdapter();
     }    

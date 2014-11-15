@@ -2,13 +2,13 @@
 
 class Form_Cliente extends Zend_Form{
     
-    private $UfId = 7;
+    private $UfId = 0;
 
     public function __construct($options = null) {
         parent::__construct($options);        
     }
     
-    public function setIdUF($UfId = 7){
+    public function setIdUF($UfId = 0){
         $this->UfId = $UfId;
     }
     
