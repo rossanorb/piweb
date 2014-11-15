@@ -60,7 +60,7 @@ class Site_IndexController extends Zend_Controller_Action{
     public function cadastreseAction(){
         
         if ($this->_request->isPost()) {
-            $this->view->form = new Form_Cliente();            
+            $this->view->form = new Form_Cliente();
             $formFields = $this->_request->getPost();
             if(isset($formFields['uf'])){
                 $this->view->form->setIdUF($formFields['uf']);                        
@@ -74,13 +74,12 @@ class Site_IndexController extends Zend_Controller_Action{
                     $pacientes = new Model_DbTable_pacientes();
                     if($pacientes->authenticate($formFields)){ // se logar redireciona para tela de consultas do paciente
                       $this->_redirect('site/paciente/'); // redireciona para tela do paciente   
-                    }else{                      
+                    }else{
                       $this->_redirect('site/index/login/auth/erro');
                     }
                     
                 }else{
-                    print 'ocorreu um erro ao cadastrar';
-                    //$this->_redirect('site/index/login');
+                    print 'ocorreu um erro ao cadastrar';                    
                 }
                 
             } else {

@@ -38,8 +38,10 @@ echo $this->headScript();
                         <div id="clinicas">
                                <div style="width: 250px;" class="title">Para Clínicas e Médicos</div>
                                <div id="arrow"></div>
-                               <div class="item"><a href="#"><p>Cadastre-se aqui</p></a></div>
+                               <div class="item"><a href="<?php echo $this->baseUrl('site/clinica/cadastro')?>"><p>Cadastre-se aqui</p></a></div>
                                <div id="arrow"></div>                               
+                               <div class="item"><a href="<?php echo $this->baseUrl('site/clinica/login')?>"><p>Área administrativa</p></a></div>
+                               <div id="arrow"></div>                                                              
                                <div class="item"><a href="#"><p>Contato</p></a></div>
                         </div>
                 </nav>
