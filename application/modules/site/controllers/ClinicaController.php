@@ -56,6 +56,10 @@ class Site_ClinicaController extends Zend_Controller_Action{
     }
     
     public function loginAction(){
+        
+         $auth = Zend_Auth::getInstance();
+         if($auth->hasIdentity()) $this->_redirect ('clinica/index');        
+        
         $this->view->form = new Form_LoginClinica();
         
         if($this->_request->isPost()){
