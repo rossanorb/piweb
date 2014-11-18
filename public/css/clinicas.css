@@ -1,0 +1,75 @@
+
+html, body {
+   width:100%;
+   height:100%;
+   padding: 0px;
+   margin: 0px;
+}
+ 
+#table {   
+   width: 100%;
+   height: auto;
+   display: table;
+   *overflow: hidden; /* hack para o IE6 e IE7 */
+   *position: relative; /* hack para o IE6 e IE7 */
+}
+ 
+#cell {
+   vertical-align: middle;
+   display: table-cell;
+   position: static;
+   *top: 50%; /* hack para o IE6 e IE7 */
+   *position: absolute; /* hack para o IE6 e IE7 */
+}
+ 
+.conteudo {
+   word-break: break-all; 
+   top: -50%;
+   width: 750px;
+   margin: auto;
+   position: relative;
+   //border:#444444 solid 1px;
+   padding:10px;
+   min-height: 330px;
+}
+
+/*#gridlist-medicos{
+    width: 600px;
+    height: auto;
+    background-color: #e6feff;
+}
+
+.item-list-medico{
+    
+    width: 600px;
+    height: 24px;
+}
+
+.item-list-medico .nome{
+    float: left;
+    width: 480px;
+    height: 20px;
+    padding-top: 2px;
+    margin-left:10px;
+}
+
+.item-list-medico .bt{
+    float:left;
+    width: 90px;
+    height: 20px;    
+    padding-top: 2px;
+    cursor: pointer;
+}
+
+.item-list-medico .bt span{
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: #49809c;
+    color: #FFF;
+   
+}*/
+
+
+.datepicker{
+    font: 67.5% "Trebuchet MS", sans-serif;
+}

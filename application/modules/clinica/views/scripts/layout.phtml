@@ -1,31 +1,73 @@
 <?php echo $this->doctype()?> 
 <html lang="pt-br">
 <head>
-	<meta charset="UTF-8">
+    
 <?php 
-$this->headTitle()->append('Layout e módulos - Zend Framework');
+    
+$this->headTitle()->prepend('Agenda Fácil');
 $this->headTitle()->setSeparator(' - ');
+$this->headMeta()->headMeta ('Rossano Bavaresco', 'author');
+$this->headLink()->setSeparator(PHP_EOL)->prependStylesheet($this->baseUrl('/css/clinicas.css'));
+$this->headLink()->setSeparator(PHP_EOL)->prependStylesheet($this->baseUrl('/css/jquery-ui.css'));
+$this->headLink()->setSeparator(PHP_EOL)->prependStylesheet($this->baseUrl('/css/piweb.css'));
+
+$this->headScript()->setSeparator(PHP_EOL)->prependFile($this->baseUrl('/js/clinica/clinica.js'));
+$this->headScript()->setSeparator(PHP_EOL)->prependFile($this->baseUrl('/js/site.js'));
+$this->headScript()->setSeparator(PHP_EOL)->prependFile($this->baseUrl('/js/jquery-ui.js'));
+$this->headScript()->setSeparator(PHP_EOL)->prependFile($this->baseUrl('/js/jquery.mask.js'));
+$this->headScript()->setSeparator(PHP_EOL)->prependFile($this->baseUrl('/js/jquery-1.11.1.min.js'));
+
+
 echo $this->headTitle(),PHP_EOL;
-$this->headMeta()->headMeta ('Matias Rezende', 'author');
-				 
-$this->headLink()->setSeparator(PHP_EOL)
-		 ->prependStylesheet($this->baseUrl('estilos/estilo.css'));
-
-$this->headScript ()->setSeparator(PHP_EOL)
-		    ->prependFile ($this->baseUrl('scripts/jquery/jquery-1.6.1.min.js') );
-
 echo $this->headMeta(),PHP_EOL;
 echo $this->headLink(),PHP_EOL;
 echo $this->headScript();
 ?> 
+
 </head>
-<body>
-	<div id="wrapper">
-		<div id="content">
-			<h1>Modulo Clínica</h1>
-			<?php echo $this->layout()->content;?>
-		</div><!-- /content -->
-	</div><!-- /wrapper -->
-</body>
+    <body>        
+        <div class="clearFix" id="wrapper">
+            <header>
+                <nav>                    
+                        <div id="pacientes">
+                                <div style="width: 250px;" class="title">&nbsp;</div>                            
+                                <div id="arrow"  style="height: 20px;"></div>
+                                <div class="item" ><a href="<?php echo $this->baseUrl('/clinica/medicos/') ?>"><p>cadastro de médicos</p></a></div>                                
+                                <div id="arrow"></div>
+                                <div class="item"><a href="<?php echo $this->baseUrl('clinica/horarios/') ?>"><p>cadastro de horários</p></a></div>
+                                <div id="arrow"></div>
+                                <div class="item"><a href="<?php echo $this->baseUrl('/clinica/agenda/') ?>"><p>agenda</p></a></div>
+                        </div>
+                    
+                        <div id="clinicas">
+                               <div style="width: 250px;" class="title">&nbsp;</div>
+                               <div id="arrow"></div>
+                               <div class="item"><a href="<?php echo $this->baseUrl('/site/index/logout') ?>"><p>logout</p></a></div>
+                               
+                        </div>
+                </nav>
+            </header>
+            
+            <div id="mainContent">
+            <?php echo $this->layout()->content ?>
+            </div>
+            
+            <footer>
+                <div id="links" align="center">
+                    <div>
+                        <span><a href="#1">quem somos</a></span>
+                        <span>|</span>
+                        <span><a href="#2">como funciona</a></span>
+                        <span>|</span>
+                        <span><a href="#3">contato</a></span>
+                        <span>|</span>
+                        <span><a href="#4">cadastro</a></span>
+                    </div>                    
+                    <span><img src="<?php echo $this->baseUrl('/images/fone.png')  ?>" border="0" ></span>
+                    <span>51 3423-8911</span>                   
+                </div>
+            </footer>            
+          </div>        
+    </body>
 </html>
 

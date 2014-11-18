@@ -56,6 +56,10 @@ class Site_ClinicaController extends Zend_Controller_Action{
     }
     
     public function loginAction(){
+        
+         $auth = Zend_Auth::getInstance();
+         if($auth->hasIdentity()) $this->_redirect ('clinica/agenda');        
+        
         $this->view->form = new Form_LoginClinica();
         
         if($this->_request->isPost()){
@@ -63,7 +67,7 @@ class Site_ClinicaController extends Zend_Controller_Action{
             if($this->view->form->isValid($formFields)){
                  $clinicas = new Model_DbTable_clinicas();
                  if($clinicas->authenticate($formFields)){
-                     $this->_redirect('/clinica/index/');
+                     $this->_redirect('/clinica/agenda/');
                  }else{
                      $this->_redirect('/site/clinica/login');
                  }
@@ -73,8 +77,8 @@ class Site_ClinicaController extends Zend_Controller_Action{
             
         }
         
-    }    
+    }
+    
         
-    
-    
+        
 }
