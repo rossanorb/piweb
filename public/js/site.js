@@ -52,4 +52,11 @@ $(document).ready(function(){
     $('#numero').mask('99999999');
     
     
+    $('#bt #button').click(function(){
+         var id = $("select#especialidades").val();
+         if(id >0 ){
+             $(window.document.location).attr('href','/index/busca/especialidade/'+id);
+         }
+    });
+    
 });
