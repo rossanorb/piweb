@@ -1,0 +1,259 @@
+<?php $this->headLink()->setSeparator(PHP_EOL)->appendStylesheet($this->baseUrl('/css/clinica/horarios.css')); ?>
+
+<div  align="center" class="columnContainer clearFix"><span class="title">Gerenciamento clínico</span></div>
+<div class="columnContainer clearFix">
+    <div class="content">        
+        
+        <div id="table">
+            <div id="cell">
+                <div class="conteudo">
+                    
+                    <div style="height: 25px; width: 750px;">
+                        <div class="dropdown">
+                            <select id="medicos" name="medicos">
+                                <option value="0">selecione médico...</option>
+                                
+                                <?php foreach ($this->medicos as $medico): ?>
+                                <option value="<?php echo $medico['id_medico'] ?>"><?php echo $medico['nome'] ?></option>
+                                <?php endforeach;?>
+                                
+                            </select>                            
+                        </div>
+                    </div>
+                    <div id=container">
+                        <div id="column-left">
+                            <div class="datepicker" id="aghorarios"></div>
+                            <input type="hidden" id="data" name="data" >
+                            <div class="grade">
+                                <div class="data">Hor&aacute;rios</div>
+                                <div class="horarios">
+
+                                    <div class="column">
+                                        <div style="width:100px; text-indent: 30px;">Manh&atilde;</div>
+                                        <div class="radio"><input type="checkbox" name="horario" id="0800" ></div><div>8:00</div>
+                                        <div class="radio"><input type="checkbox" name="horario" id="0830" ></div><div>8:30</div>
+                                        <div class="radio"><input type="checkbox" name="horario" id="0900" ></div><div>9:00</div>
+                                        <div class="radio"><input type="checkbox" name="horario" id="0930" ></div><div>9:30</div>
+                                        <div class="radio"><input type="checkbox" name="horario" id="1000" ></div><div>10:00</div>
+                                        <div class="radio"><input type="checkbox" name="horario" id="1030" ></div><div>10:30</div>
+                                        <div class="radio"><input type="checkbox" name="horario" id="1100" ></div><div>11:00</div>
+                                        <div class="radio"><input type="checkbox" name="horario" id="1200" ></div><div>12:00</div>
+                                        
+                                    </div>
+
+                                    <div class="column">
+                                        <div style="width:100px; text-indent: 30px;">Tarde</div>
+                                        <div class="radio"><input type="checkbox" name="horario" id="1230" ></div><div>12:30</div>
+                                        <div class="radio"><input type="checkbox" name="horario" id="1300" ></div><div>13:00</div>
+                                        <div class="radio"><input type="checkbox" name="horario" id="1330" ></div><div>13:30</div>
+                                        <div class="radio"><input type="checkbox" name="horario" id="1400" ></div><div>14:00</div>
+                                        <div class="radio"><input type="checkbox" name="horario" id="1430" ></div><div>14:30</div>
+                                        <div class="radio"><input type="checkbox" name="horario" id="1500" ></div><div>15:00</div>
+                                        <div class="radio"><input type="checkbox" name="horario" id="1530" ></div><div>15:30</div>
+                                        <div class="radio"><input type="checkbox" name="horario" id="1600" ></div><div>16:00</div>
+                                        <div class="radio"><input type="checkbox" name="horario" id="1630" ></div><div>16:30</div>
+                                        <div class="radio"><input type="checkbox" name="horario" id="1700" ></div><div>17:00</div>                                        
+                                    </div>
+
+                                </div>
+                                <div class="line"></div>
+                                
+                            </div>
+                            
+                        </div>                        
+                        <div id="column-center"><button name="bt" id="add" type="button">Adicionar</button><dl class="erro"></dl></div>
+                        <div id="column-right">
+                            
+                            <div class="hg">
+                                <div class="dia" >
+                                    17/04/2014
+                                    <span class="excluir">x</span>
+                                </div> 
+                                
+                                    <div class="grid-horarios">
+                                        <div class="horario">12:00</div><div><span class="excluir">x</span></div>
+                                    </div>
+                                    <div class="grid-horarios">
+                                        <div class="horario">12:00</div><div><span class="excluir">x</span></div>
+                                    </div>
+                                    <div class="grid-horarios">
+                                        <div class="horario">12:00</div><div><span class="excluir">x</span></div>
+                                    </div>                                
+                            </div>
+                            
+
+                            <div class="hg">
+                                <div class="dia" >
+                                    17/04/2014
+                                    <span class="excluir">x</span>
+                                </div> 
+                                
+                                    <div class="grid-horarios">
+                                        <div class="horario">12:00</div><div><span class="excluir">x</span></div>
+                                    </div>
+                                    <div class="grid-horarios">
+                                        <div class="horario">12:00</div><div><span class="excluir">x</span></div>
+                                    </div>
+                                    <div class="grid-horarios">
+                                        <div class="horario">12:00</div><div><span class="excluir">x</span></div>
+                                    </div>
+                                    <div class="grid-horarios">
+                                        <div class="horario">12:00</div><div><span class="excluir">x</span></div>
+                                    </div>                                
+                                    <div class="grid-horarios">
+                                        <div class="horario">12:00</div><div><span class="excluir">x</span></div>
+                                    </div>                                
+                                    <div class="grid-horarios">
+                                        <div class="horario">12:00</div><div><span class="excluir">x</span></div>
+                                    </div>                                
+                                    <div class="grid-horarios">
+                                        <div class="horario">12:00</div><div><span class="excluir">x</span></div>
+                                    </div>                                
+                                    <div class="grid-horarios">
+                                        <div class="horario">12:00</div><div><span class="excluir">x</span></div>
+                                    </div>                                                                
+                            </div>                            
+                            
+                            
+
+                            <div class="hg">
+                                <div class="dia" >
+                                    17/04/2014
+                                    <span class="excluir">x</span>
+                                </div> 
+                                
+                                    <div class="grid-horarios">
+                                        <div class="horario">12:00</div><div><span class="excluir">x</span></div>
+                                    </div>
+                                    <div class="grid-horarios">
+                                        <div class="horario">12:00</div><div><span class="excluir">x</span></div>
+                                    </div>
+                                    <div class="grid-horarios">
+                                        <div class="horario">12:00</div><div><span class="excluir">x</span></div>
+                                    </div>
+                                    <div class="grid-horarios">
+                                        <div class="horario">12:00</div><div><span class="excluir">x</span></div>
+                                    </div>                                
+                                    <div class="grid-horarios">
+                                        <div class="horario">12:00</div><div><span class="excluir">x</span></div>
+                                    </div>                                
+                                    <div class="grid-horarios">
+                                        <div class="horario">12:00</div><div><span class="excluir">x</span></div>
+                                    </div>                                
+                                    <div class="grid-horarios">
+                                        <div class="horario">12:00</div><div><span class="excluir">x</span></div>
+                                    </div>                                
+                                    <div class="grid-horarios">
+                                        <div class="horario">12:00</div><div><span class="excluir">x</span></div>
+                                    </div>                                                                
+                            </div>   
+                            
+
+                            <div class="hg">
+                                <div class="dia" >
+                                    17/04/2014
+                                    <span class="excluir">x</span>
+                                </div> 
+                                
+                                    <div class="grid-horarios">
+                                        <div class="horario">12:00</div><div><span class="excluir">x</span></div>
+                                    </div>
+                                    <div class="grid-horarios">
+                                        <div class="horario">12:00</div><div><span class="excluir">x</span></div>
+                                    </div>
+                                    <div class="grid-horarios">
+                                        <div class="horario">12:00</div><div><span class="excluir">x</span></div>
+                                    </div>
+                                    <div class="grid-horarios">
+                                        <div class="horario">12:00</div><div><span class="excluir">x</span></div>
+                                    </div>                                
+                                    <div class="grid-horarios">
+                                        <div class="horario">12:00</div><div><span class="excluir">x</span></div>
+                                    </div>                                
+                                    <div class="grid-horarios">
+                                        <div class="horario">12:00</div><div><span class="excluir">x</span></div>
+                                    </div>                                
+                                    <div class="grid-horarios">
+                                        <div class="horario">12:00</div><div><span class="excluir">x</span></div>
+                                    </div>                                
+                                    <div class="grid-horarios">
+                                        <div class="horario">12:00</div><div><span class="excluir">x</span></div>
+                                    </div>                                                                
+                            </div>   
+                            
+
+                            <div class="hg">
+                                <div class="dia" >
+                                    17/04/2014
+                                    <span class="excluir">x</span>
+                                </div> 
+                                
+                                    <div class="grid-horarios">
+                                        <div class="horario">12:00</div><div><span class="excluir">x</span></div>
+                                    </div>
+                                    <div class="grid-horarios">
+                                        <div class="horario">12:00</div><div><span class="excluir">x</span></div>
+                                    </div>
+                                    <div class="grid-horarios">
+                                        <div class="horario">12:00</div><div><span class="excluir">x</span></div>
+                                    </div>
+                                    <div class="grid-horarios">
+                                        <div class="horario">12:00</div><div><span class="excluir">x</span></div>
+                                    </div>                                
+                                    <div class="grid-horarios">
+                                        <div class="horario">12:00</div><div><span class="excluir">x</span></div>
+                                    </div>                                
+                                    <div class="grid-horarios">
+                                        <div class="horario">12:00</div><div><span class="excluir">x</span></div>
+                                    </div>                                
+                                    <div class="grid-horarios">
+                                        <div class="horario">12:00</div><div><span class="excluir">x</span></div>
+                                    </div>                                
+                                    <div class="grid-horarios">
+                                        <div class="horario">12:00</div><div><span class="excluir">x</span></div>
+                                    </div>                                                                
+                            </div>
+                            
+
+                            <div class="hg">
+                                <div class="dia" >
+                                    17/04/2014
+                                    <span class="excluir">x</span>
+                                </div> 
+                                
+                                    <div class="grid-horarios">
+                                        <div class="horario">12:00</div><div><span class="excluir">x</span></div>
+                                    </div>
+                                    <div class="grid-horarios">
+                                        <div class="horario">12:00</div><div><span class="excluir">x</span></div>
+                                    </div>
+                                    <div class="grid-horarios">
+                                        <div class="horario">12:00</div><div><span class="excluir">x</span></div>
+                                    </div>
+                                    <div class="grid-horarios">
+                                        <div class="horario">12:00</div><div><span class="excluir">x</span></div>
+                                    </div>                                
+                                    <div class="grid-horarios">
+                                        <div class="horario">12:00</div><div><span class="excluir">x</span></div>
+                                    </div>                                
+                                    <div class="grid-horarios">
+                                        <div class="horario">12:00</div><div><span class="excluir">x</span></div>
+                                    </div>                                
+                                    <div class="grid-horarios">
+                                        <div class="horario">12:00</div><div><span class="excluir">x</span></div>
+                                    </div>                                
+                                    <div class="grid-horarios">
+                                        <div class="horario">12:00</div><div><span class="excluir">x</span></div>
+                                    </div>                                                                
+                            </div>
+                                                        
+                        </div>
+                    </div>
+                    
+                </div>                
+            </div>
+        </div>
+        
+    </div> 
+</div>
+<div class="columnContainer clearFix"></div> 
