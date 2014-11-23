@@ -28,7 +28,7 @@ class Site_IndexController extends Zend_Controller_Action{
     }
     
     public function buscaAction(){
-        
+        $this->view->form = new Form_Busca();
     }
     
     private function insertCliente($formFields){
