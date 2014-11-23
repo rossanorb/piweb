@@ -29,8 +29,7 @@ endif;
 
 
 <script type="text/javascript">
-    $(".excluir").click(function(){
-       alert('teste');
+    $(".excluir").click(function(){    
        var id_medico = $("#medicos").val(); 
        var id =  $(this).attr('id');       
        AjaxRequest('/clinica/horarios/dl/id/'+id,'POST','.erro');       
