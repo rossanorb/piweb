@@ -89,6 +89,15 @@ $(function() {
             AjaxRequest('/clinica/horarios/list-horarios/id/'+id_medico,'POST','#column-right');
                 
     });
+    
+    
+    $(".excluir").click(function(){
+        alert('teste');
+       var id_medico = $("#medicos").val(); 
+       var id =  $(this).attr('id');       
+       AjaxRequest('/clinica/horarios/dl/id/'+id,'POST','.erro');       
+       AjaxRequest('/clinica/horarios/list-horarios/id/'+id_medico,'POST','#column-right');
+    });
 
     
 });

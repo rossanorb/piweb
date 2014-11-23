@@ -1,8 +1,11 @@
+<?php 
+$this->headScript()->setSeparator(PHP_EOL)->prependFile($this->baseUrl('/js/clinica/clinica.js'));
+echo $this->headScript();
+?> 
 
-
-<?php
+<?php 
 if(isset($this->dados)):
-    foreach ($this->dados as  $data => $horarios): 
+    foreach ($this->dados as  $data => $id_horarios):
 ?>
 
     <div class="hg">
@@ -11,11 +14,16 @@ if(isset($this->dados)):
             <span class="excluir">x</span>
         </div> 
 
-        <?php foreach ($horarios as $horario): ?>
+        <?php foreach ($id_horarios as $id => $horarios):
+                foreach($horarios as $horario):
+        ?>            
         <div class="grid-horarios">
-            <div class="horario"><?php echo $horario ?></div><div><span class="excluir">x</span></div>
+            <div class="horario"><?php echo $horario ?></div><div><span id="<?php echo $id ?> "  title="excluir <?php echo $horario ?> " class="excluir">x</span></div>
         </div>
-        <?php endforeach; ?>
+        <?php 
+                endforeach;
+            endforeach;
+        ?>
 
     </div>
 

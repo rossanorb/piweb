@@ -69,13 +69,27 @@ class Model_DbTable_Horarios extends Zend_Db_Table_Abstract{
         $session = new Zend_Session_Namespace('session');
         $sql = "SELECT  id_horarios, id_clinica, id_medico, DATE(data) as data, valor, horario FROM horarios WHERE  id_clinica = {$session->id_clinica} and id_medico = $id_medico ORDER BY data ";
         $stmt = $this->db->query($sql);
-        $dados = $stmt->fetchAll();
+        @$dados = $stmt->fetchAll();
         
        foreach ($dados as $value){
-           $d[$value['data']][] = $value['horario'];           
+          // $d[$value['data']] [$value['id_horarios']]['id_horarios'] = $value['horario'];
+           $d[$value['data']] [$value['id_horarios']][] = $value['horario'];
        }
        
-        return $d;
+       $retorno = isset($d)? $d : array();
+       
+        return $retorno;
     }
+    
+    
+    public function dl($id){
+        if(filter_var($id, FILTER_VALIDATE_INT)){
+            if($this->delete("id_horarios = $id "))            
+                return true;
+            else
+                return false;            
+        }        
+        
+    } 
     
 }

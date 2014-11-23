@@ -62,17 +62,18 @@ class Clinica_HorariosController extends Zend_Controller_Action{
     }
     
     public function listHorariosAction(){
-        $this->_helper->layout->disableLayout();
-      // $this->_helper->viewRenderer->setNoRender();
-        
+       $this->_helper->layout->disableLayout();
        $horarios = new Model_DbTable_Horarios();
        $this->view->dados = $horarios->getListHorarios($this->_getParam('id'));
-       
-//       echo "<pre>";
-//       print_r($dados);
-//       echo "</pre>";
-       
+
            
+    }    
+    
+    public function dlAction(){
+ 	$this->_helper->layout->disableLayout();
+        $this->_helper->viewRenderer->setNoRender();        
+        $horarios = new Model_DbTable_Horarios();
+        $horarios->dl($this->_getParam('id'));        
     }
     
 }
