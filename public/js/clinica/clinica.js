@@ -37,12 +37,13 @@ $(function() {
         dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
         monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
         monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'],
-        
-//        onSelect: function(){
-//               var data = $( "#aghorarios" ).datepicker( "getDate");
-//               var dia = data.getFullYear()+'-'+  (data.getMonth()+1) +'-'+ data.getDate()  ;
-//               $("#data").val(dia);
-//        }
+        /*
+        onSelect: function(){
+           var data = $( "#aghorarios" ).datepicker( "getDate");
+           var dia = data.getFullYear()+'-'+  (data.getMonth()+1) +'-'+ data.getDate()  ;
+           $("#data").val(dia);
+        }
+        */
         
     });
     
@@ -91,8 +92,7 @@ $(function() {
     });
     
     
-    $(".excluir").click(function(){
-        alert('teste');
+    $(".excluir").click(function(){        
        var id_medico = $("#medicos").val(); 
        var id =  $(this).attr('id');       
        AjaxRequest('/clinica/horarios/dl/id/'+id,'POST','.erro');       

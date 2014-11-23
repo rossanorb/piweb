@@ -1,9 +1,4 @@
 <?php 
-$this->headScript()->setSeparator(PHP_EOL)->prependFile($this->baseUrl('/js/clinica/clinica.js'));
-echo $this->headScript();
-?> 
-
-<?php 
 if(isset($this->dados)):
     foreach ($this->dados as  $data => $id_horarios):
 ?>
@@ -31,3 +26,14 @@ if(isset($this->dados)):
     endforeach;
 endif;
 ?>
+
+
+<script type="text/javascript">
+    $(".excluir").click(function(){
+       alert('teste');
+       var id_medico = $("#medicos").val(); 
+       var id =  $(this).attr('id');       
+       AjaxRequest('/clinica/horarios/dl/id/'+id,'POST','.erro');       
+       AjaxRequest('/clinica/horarios/list-horarios/id/'+id_medico,'POST','#column-right');
+    });	
+</script>

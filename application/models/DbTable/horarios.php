@@ -67,13 +67,14 @@ class Model_DbTable_Horarios extends Zend_Db_Table_Abstract{
     
     public function getListHorarios($id_medico){
         $session = new Zend_Session_Namespace('session');
-        $sql = "SELECT  id_horarios, id_clinica, id_medico, DATE(data) as data, valor, horario FROM horarios WHERE  id_clinica = {$session->id_clinica} and id_medico = $id_medico ORDER BY data ";
+        //$sql = "SELECT  id_horarios, id_clinica, id_medico, DATE(data) as data, valor, horario FROM horarios WHERE  id_clinica = {$session->id_clinica} and id_medico = $id_medico ORDER BY data ";
+        $sql ="SELECT  id_horarios, id_clinica, id_medico, DATE(data) as fdata, valor, DATE_FORMAT(data,'%H:%i') as horario  FROM horarios WHERE  id_clinica = {$session->id_clinica} and id_medico = $id_medico ORDER BY data";
         $stmt = $this->db->query($sql);
         @$dados = $stmt->fetchAll();
         
        foreach ($dados as $value){
           // $d[$value['data']] [$value['id_horarios']]['id_horarios'] = $value['horario'];
-           $d[$value['data']] [$value['id_horarios']][] = $value['horario'];
+           $d[$value['fdata']] [$value['id_horarios']][] = $value['horario'];
        }
        
        $retorno = isset($d)? $d : array();
