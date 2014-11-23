@@ -1,0 +1,113 @@
+.conteudo {
+   width: 1000px;
+}
+#column-left{
+    float: left;
+    width: 220px;
+    height: auto;
+    //background-color: #fcefa1;
+    padding-right:10px;   
+}
+
+#column-center{
+    float: left;
+    width: 200px;
+    height: 500px;    
+    //background-color: #cccc00;
+    
+}
+
+#column-center button{
+    margin-left: 34px;
+    margin-top: 204px;
+}
+
+#column-right{
+    float: left;
+    width: 570px;
+    height: auto;
+    //background-color: #fcefa1;
+}
+
+
+.grade{
+    padding-top: 10px;
+    width: 210px;    
+    height: 300px;
+}
+.grade .data{width: 208px;}
+.grade .horarios{
+    width: 208px;
+    height: 277px;   
+}
+.grade .horarios .column{width: 100px;}
+.grade .horarios .column div{width: 42px;}
+.grade .horarios .column .radio{width: 40px;}
+.grade .line{    
+    height: 1px;
+    margin-bottom: 0;
+    margin-top: 0;
+    width: 208px;
+}
+
+.hg{
+    float: left;
+    width: 130px;
+    height: auto;
+    //background-color: mediumpurple;
+    border: solid 1px #49809c;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.hg .dia{
+    background-color: #49809c;
+    color: #fff;
+    float: left;
+    height: 22px;
+    padding-left: 10px;
+    width: 120px;
+}
+
+.hg .horario{
+    float: left;
+    padding-left: 10px;
+    
+}
+
+.hg .grid-horarios{
+    float:left;
+    width: 100px;
+    height: 20px;
+    margin-top: 3px;
+    margin-bottom:3px;
+    margin-left: 10px;
+    background-color: #e6feff;
+    border: solid 1px #49809c;
+}
+
+.hg #grid-horarios div{
+    padding-left: 10px;
+    float:left;
+    width: 40px;
+    height: 20px;
+}
+
+
+
+.hg .excluir{
+    cursor: pointer;
+    font-size: 14px;
+    color: #fff;
+    margin-left: 15px;
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: red;
+}
+
+#column-center .erro {    
+    margin-left: 34px;    
+    color:red;
+    font-family: Arial;
+    font-size: 15px;
+}

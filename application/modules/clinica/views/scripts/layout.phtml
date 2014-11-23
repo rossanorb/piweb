@@ -8,10 +8,12 @@ $this->headTitle()->prepend('Agenda Fácil');
 $this->headTitle()->setSeparator(' - ');
 $this->headMeta()->headMeta ('Rossano Bavaresco', 'author');
 $this->headLink()->setSeparator(PHP_EOL)->prependStylesheet($this->baseUrl('/css/clinicas.css'));
+$this->headLink()->setSeparator(PHP_EOL)->prependStylesheet($this->baseUrl('/css/jquery-ui.css'));
 $this->headLink()->setSeparator(PHP_EOL)->prependStylesheet($this->baseUrl('/css/piweb.css'));
 
-
+$this->headScript()->setSeparator(PHP_EOL)->prependFile($this->baseUrl('/js/clinica/clinica.js'));
 $this->headScript()->setSeparator(PHP_EOL)->prependFile($this->baseUrl('/js/site.js'));
+$this->headScript()->setSeparator(PHP_EOL)->prependFile($this->baseUrl('/js/jquery-ui.js'));
 $this->headScript()->setSeparator(PHP_EOL)->prependFile($this->baseUrl('/js/jquery.mask.js'));
 $this->headScript()->setSeparator(PHP_EOL)->prependFile($this->baseUrl('/js/jquery-1.11.1.min.js'));
 
@@ -40,7 +42,7 @@ echo $this->headScript();
                         <div id="clinicas">
                                <div style="width: 250px;" class="title">&nbsp;</div>
                                <div id="arrow"></div>
-                               <div class="item"><a href="<?php echo $this->baseUrl('/clinica/index/logout') ?>"><p>logout</p></a></div>
+                               <div class="item"><a href="<?php echo $this->baseUrl('/site/index/logout') ?>"><p>logout</p></a></div>
                                
                         </div>
                 </nav>

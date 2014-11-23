@@ -66,7 +66,7 @@ class Site_ClinicaController extends Zend_Controller_Action{
             $formFields = $this->_request->getPost();
             if($this->view->form->isValid($formFields)){
                  $clinicas = new Model_DbTable_clinicas();
-                 if($clinicas->authenticate($formFields)){
+                 if($clinicas->authenticate($formFields)){                                          
                      $this->_redirect('/clinica/agenda/');
                  }else{
                      $this->_redirect('/site/clinica/login');
@@ -77,8 +77,8 @@ class Site_ClinicaController extends Zend_Controller_Action{
             
         }
         
-    }    
+    }
+    
         
-    
-    
+        
 }

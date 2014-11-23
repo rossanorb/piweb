@@ -23,15 +23,17 @@ html, body {
 }
  
 .conteudo {
+   word-break: break-all; 
    top: -50%;
    width: 750px;
    margin: auto;
    position: relative;
    //border:#444444 solid 1px;
-   padding:10px;   
+   padding:10px;
+   min-height: 330px;
 }
 
-#gridlist-medicos{
+/*#gridlist-medicos{
     width: 600px;
     height: auto;
     background-color: #e6feff;
@@ -65,4 +67,9 @@ html, body {
     background-color: #49809c;
     color: #FFF;
    
+}*/
+
+
+.datepicker{
+    font: 67.5% "Trebuchet MS", sans-serif;
 }
