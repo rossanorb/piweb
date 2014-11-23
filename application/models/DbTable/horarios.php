@@ -21,8 +21,9 @@ class Model_DbTable_Horarios extends Zend_Db_Table_Abstract{
         return $horario;
     }
     
-    private function hrAvailable($data){
-        $sql = "SELECT data FROM horarios WHERE DATA = '$data' ";
+    private function hrAvailable($data,$id_medico){
+        $session = new Zend_Session_Namespace('session');
+        $sql = "SELECT data FROM horarios WHERE  id_clinica = {$session->id_clinica} and id_medico = $id_medico and DATA = '$data'";
         $stmt = $this->db->query($sql);
         $obj = $stmt->fetchObject();
         
@@ -40,11 +41,11 @@ class Model_DbTable_Horarios extends Zend_Db_Table_Abstract{
              if(is_numeric($horario)){
                     
                     $horario = $this->format($horario);
-                    $data = $this->hrAvailable("{$dados['dados']['data']} $horario:00");
+                    $data = $this->hrAvailable("{$dados['dados']['data']} $horario:00", $dados['dados']['id_medico'] );
                     
                     if(empty($data)){                        
                         $id[] = $this->insert(array(
-                                        'id_clinica' => $session->id_clinica,
+                                        'id_clinica' => 64,
                                         'id_medico' => $dados['dados']['id_medico'],
                                         'data' => "{$dados['dados']['data']} $horario:00",
                                         'valor' => '20.00',
@@ -62,6 +63,19 @@ class Model_DbTable_Horarios extends Zend_Db_Table_Abstract{
             return TRUE;
         else
             return FALSE;        
+    }
+    
+    public function getListHorarios($id_medico){
+        $session = new Zend_Session_Namespace('session');
+        $sql = "SELECT  id_horarios, id_clinica, id_medico, DATE(data) as data, valor, horario FROM horarios WHERE  id_clinica = {$session->id_clinica} and id_medico = $id_medico ORDER BY data ";
+        $stmt = $this->db->query($sql);
+        $dados = $stmt->fetchAll();
+        
+       foreach ($dados as $value){
+           $d[$value['data']][] = $value['horario'];           
+       }
+       
+        return $d;
     }
     
 }

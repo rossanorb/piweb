@@ -1,0 +1,25 @@
+
+
+<?php
+if(isset($this->dados)):
+    foreach ($this->dados as  $data => $horarios): 
+?>
+
+    <div class="hg">
+        <div class="dia">
+            <?php echo $data ?>
+            <span class="excluir">x</span>
+        </div> 
+
+        <?php foreach ($horarios as $horario): ?>
+        <div class="grid-horarios">
+            <div class="horario"><?php echo $horario ?></div><div><span class="excluir">x</span></div>
+        </div>
+        <?php endforeach; ?>
+
+    </div>
+
+<?php
+    endforeach;
+endif;
+?>

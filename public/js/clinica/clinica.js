@@ -38,11 +38,11 @@ $(function() {
         monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
         monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'],
         
-        onSelect: function(){
-               var data = $( "#aghorarios" ).datepicker( "getDate");
-               var dia = data.getFullYear()+'-'+  (data.getMonth()+1) +'-'+ data.getDate()  ;
-               $("#data").val(dia);
-        }
+//        onSelect: function(){
+//               var data = $( "#aghorarios" ).datepicker( "getDate");
+//               var dia = data.getFullYear()+'-'+  (data.getMonth()+1) +'-'+ data.getDate()  ;
+//               $("#data").val(dia);
+//        }
         
     });
     
@@ -85,6 +85,8 @@ $(function() {
                     }
                 }
             });
+            
+            AjaxRequest('/clinica/horarios/list-horarios/id/'+id_medico,'POST','#column-right');
                 
     });
 

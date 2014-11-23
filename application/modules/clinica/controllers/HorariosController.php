@@ -2,8 +2,8 @@
 
 class Clinica_HorariosController extends Zend_Controller_Action{
     
-    public function init() {
-        parent::init();        
+    public function init() {        
+        parent::init();                              
          $auth = Zend_Auth::getInstance();
          if(!$auth->hasIdentity()) $this->_redirect ('site/clinica/login');
     }    
@@ -59,6 +59,20 @@ class Clinica_HorariosController extends Zend_Controller_Action{
          
          echo Zend_Json::encode($dados);
         
+    }
+    
+    public function listHorariosAction(){
+        $this->_helper->layout->disableLayout();
+      // $this->_helper->viewRenderer->setNoRender();
+        
+       $horarios = new Model_DbTable_Horarios();
+       $this->view->dados = $horarios->getListHorarios($this->_getParam('id'));
+       
+//       echo "<pre>";
+//       print_r($dados);
+//       echo "</pre>";
+       
+           
     }
     
 }
