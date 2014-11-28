@@ -11,38 +11,62 @@
     </div>                    
 </div>
 <div class="columnContainer clearFix">
-    <div class="content">                        
-        <div class="info_clinica">                           
-            <div id="nome" >Clínicas Unidas - Dra. Laura Silveira</div>                            
-            <div id="logo"><div>logo</div></div>
-            <div id="endereco">Endereço: Rua Mostardeiro 945, Sala 102 Independência, Porto Alegre</div>                           
-        </div> 
+    
+<?php 
+if(isset($this->dados)):
+    foreach ($this->dados as  $data => $id_horarios):
+        foreach ($id_horarios as $id => $horarios):    
+            $hrs = array_chunk( $horarios, ( round(count($horarios)/2)), true );
+?>
+    
+        <div>
+                <div class="content">                        
+                    <div class="info_clinica">                           
+                        <div id="nome" ><?php echo $id ?></div>                            
+                        <div id="logo"><div>foto</div></div>
+                        <div id="endereco"><!-- endereço --></div>                           
+                    </div> 
 
-        <div class="grade">
-            <div class="data">17/08/2014</div>
-            <div class="horarios">
+                    <div class="grade">
+                        <div class="data"> <?php echo $data ?>  </div>
+                        <div class="horarios">
 
-                <div class="column">
-                    <div class="radio"><input type="radio" name="horario" ></div><div>9:00</div>
-                    <div class="radio"><input type="radio" name="horario"  ></div><div>9:30</div>
-                    <div class="radio"><input type="radio" name="horario"  ></div><div>10:00</div>
-                    <div class="radio"><input type="radio" name="horario"  ></div><div>10:30</div>
-                </div>
+                         <!-- array left -->   
+                        <?php
+                        foreach ($hrs[0] as $id_h => $h):
+                        ?> 
+                            <div class="column">
+                                <div class="radio"><input name="horario" id="<?php echo $id_h ?>" type="checkbox"></div><div><?php echo $h ?></div>
+                            </div>
+                        <?php                             
+                         endforeach;
+                        ?>                                   
 
-                <div class="column">
-                    <div class="radio"><input type="radio" name="horario" ></div><div>13:00</div>
-                    <div class="radio"><input type="radio" name="horario"  ></div><div>13:30</div>
-                    <div class="radio"><input type="radio" name="horario"  ></div><div>14:00</div>
-                    <div class="radio"><input type="radio" name="horario"  ></div><div>15:00</div>
-                </div>
+                         <!-- array right -->   
+                        <?php
+                        foreach ($hrs[1] as $id_h => $h):
+                        ?> 
+                            <div class="column">
+                                <div class="radio"><input name="horario" id="<?php echo $id_h ?>" type="checkbox"></div><div><?php echo $h ?></div>
+                            </div>
+                        <?php                             
+                         endforeach;
+                        ?>                          
+                         
+                        </div>
+                        <div class="line"></div>
+                        <div class="bt-confirma">
+                            <button type="button" id="button" name="bt">Confirmar</button>                
+                        </div>
+                    </div>                        
 
-            </div>
-            <div class="line"></div>
-            <div>
-                <button type="button" id="button" name="bt">Confirmar</button>                
-            </div>
-        </div>                        
 
-
-    </div>                    
+                </div>    
+        </div>
+    
+<?php
+        endforeach;
+    endforeach;
+endif;
+?>        
 </div>

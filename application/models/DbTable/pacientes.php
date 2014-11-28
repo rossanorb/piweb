@@ -5,8 +5,15 @@ class Model_DbTable_pacientes extends Zend_Db_Table_Abstract{
 
     public function init() {
         $this->db = $this->getAdapter();
-    }    
+    }
     
+    
+    private function setSession(){
+        $session = new Zend_Session_Namespace('session');
+        $session->paciente_info = $this->fetchRow();
+    }
+
+
     public function authenticate($formFields){
         $auth = Zend_Auth::getInstance();                    
         $authAdapter = new Zend_Auth_Adapter_DbTable( $this->db,'pacientes','email','senha','MD5(?)');
@@ -24,6 +31,7 @@ class Model_DbTable_pacientes extends Zend_Db_Table_Abstract{
                 break;
 
             case Zend_Auth_Result::SUCCESS:
+                $this->setSession();
                  return true;
                 break;
 

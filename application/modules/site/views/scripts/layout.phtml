@@ -7,9 +7,11 @@
 $this->headTitle()->prepend('Agenda Fácil');
 $this->headTitle()->setSeparator(' - ');
 $this->headMeta()->headMeta ('Rossano Bavaresco', 'author');
+$this->headLink()->setSeparator(PHP_EOL)->prependStylesheet($this->baseUrl('/css/jquery-ui.css'));
 $this->headLink()->setSeparator(PHP_EOL)->prependStylesheet($this->baseUrl('/css/piweb.css'));
 
 $this->headScript()->setSeparator(PHP_EOL)->prependFile($this->baseUrl('/js/site.js'));
+$this->headScript()->setSeparator(PHP_EOL)->prependFile($this->baseUrl('/js/jquery-ui.js'));
 $this->headScript()->setSeparator(PHP_EOL)->prependFile($this->baseUrl('/js/jquery.mask.js'));
 $this->headScript()->setSeparator(PHP_EOL)->prependFile($this->baseUrl('/js/jquery-1.11.1.min.js'));
 

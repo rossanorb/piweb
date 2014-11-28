@@ -66,14 +66,12 @@ class Model_DbTable_Horarios extends Zend_Db_Table_Abstract{
     }
     
     public function getListHorarios($id_medico){
-        $session = new Zend_Session_Namespace('session');
-        //$sql = "SELECT  id_horarios, id_clinica, id_medico, DATE(data) as data, valor, horario FROM horarios WHERE  id_clinica = {$session->id_clinica} and id_medico = $id_medico ORDER BY data ";
+        $session = new Zend_Session_Namespace('session');        
         $sql ="SELECT  id_horarios, id_clinica, id_medico, DATE(data) as fdata, valor, DATE_FORMAT(data,'%H:%i') as horario  FROM horarios WHERE  id_clinica = {$session->id_clinica} and id_medico = $id_medico ORDER BY data";
         $stmt = $this->db->query($sql);
         @$dados = $stmt->fetchAll();
         
-       foreach ($dados as $value){
-          // $d[$value['data']] [$value['id_horarios']]['id_horarios'] = $value['horario'];
+       foreach ($dados as $value){          
            $d[$value['fdata']] [$value['id_horarios']][] = $value['horario'];
        }
        
@@ -82,6 +80,35 @@ class Model_DbTable_Horarios extends Zend_Db_Table_Abstract{
         return $retorno;
     }
     
+    public function getInforHorario($id_horario){
+         if(filter_var($id_horario, FILTER_VALIDATE_INT)){
+            $sql ="
+                SELECT
+                hr.id_horarios,
+                m.nome,
+                espc.especialidade,
+                DATE_FORMAT(hr.data,'%d/%c/%Y') as fdata,
+                DATE_FORMAT(hr.data,'%H:%i') as horario,
+                cl.rua,
+                cl.numero,
+                cl.complemento,
+                cl.bairro,
+                cl.telefone,
+                hr.valor
+
+                FROM horarios hr JOIN medicos m ON ( hr.id_medico = m.id_medico)
+                JOIN clinicas_medicos clm ON (hr.id_clinica = clm.id_clinica and m.id_medico = clm.id_medico)
+                JOIN clinicas cl ON (clm.id_clinica = cl.id_clinica)
+                JOIN especialidades espc ON ( m.id_especialidade = espc.id_especialidade)
+                WHERE hr.id_horarios = {$id_horario} 
+             ";
+             
+            $stmt = $this->db->query($sql);
+            return $stmt->fetchObject();
+         }
+         return 0;
+    }
+
     
     public function dl($id){
         if(filter_var($id, FILTER_VALIDATE_INT)){
