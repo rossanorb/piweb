@@ -10,7 +10,7 @@ $(document).ready(function(){
         });
     });
     
-    $('#close').click(function(){        
+    $('#close').click(function(){
          $( "#dialog" ).dialog( "close" );
     });
     
