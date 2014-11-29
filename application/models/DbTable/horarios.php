@@ -3,7 +3,8 @@
 class Model_DbTable_Horarios extends Zend_Db_Table_Abstract{
     protected $_name = 'Horarios';
     private $db;
-    
+    private $status;
+
     public function init() {
         $this->db = $this->getAdapter();
     }
@@ -118,6 +119,43 @@ class Model_DbTable_Horarios extends Zend_Db_Table_Abstract{
                 return false;            
         }        
         
-    } 
+    }
+    
+    public function getStatus(){
+        return $this->status;
+    }
+    
+
+
+    public function disponivel($id_horario){                
+         if(filter_var($id_horario, FILTER_VALIDATE_INT)){
+            $sql = "SELECT 
+                        hrs.id_horarios as horario,
+                        c.id_horarios as consulta
+                    FROM horarios hrs
+                    LEFT JOIN consulta c ON (hrs.id_horarios = c.id_horarios)
+                    WHERE hrs.id_horarios = {$id_horario} ";
+             
+            $stmt = $this->db->query($sql);
+            $obj = $stmt->fetchObject();
+            
+            if( $obj->consulta && $obj->horario ){
+                 $this->status = "já existe agendamento para esse horário, tente fazer uma nova busca";
+                 return FALSE;
+                
+            }elseif($obj->horario && !$obj->consulta ){                 
+                 return TRUE;
+                 
+            }else{
+                 $this->status = 'Horário indisponível, tente fazer uma nova busca';
+                 return FALSE;
+            }
+            
+         }
+         
+         $this->status = 'Ocorreu um erro ';
+         return FALSE;
+                
+    }
     
 }

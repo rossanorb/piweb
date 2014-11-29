@@ -1,0 +1,32 @@
+<?php if(strlen($this->erro)>0): ?>
+
+    
+        <h4>Atenção!</h4>
+
+
+        <p id="erro">
+            <?php echo $this->erro; ?>
+        </p>    
+
+        
+        <p id="pagamento">
+            <a href="/index/busca/">fazer busca</a>
+        </p>    
+
+    
+        
+<?php elseif($this->id > 0): ?>
+        
+        <h4>Agendamento realizado</h4>
+
+
+        <p id="sucesso">o agendamento foi realizado com sucesso! <br>
+            códido do agendamento: <b><?php echo $this->id; ?></b> <br>            
+        </p>
+
+        
+        <p id="link_painel">
+            <a href="/paciente/">ir para meu painel de consultas</a>
+        </p        
+        
+<?php endif; ?>

@@ -21,6 +21,7 @@
     left: 158px;
     list-style: none outside none;
     padding-left: 8px;
+    padding-bottom: 15px;
     position: relative;
     top: 10px;
     width: 200px;
@@ -33,29 +34,68 @@
     height: 20px;
 }
 
+#box_credcard p{
+    padding-bottom: 8px;
+}
+
 #box_credcard p#titular{
     position: relative;
     left: 30px;    
-    top: 15px;
+   // top: 15px;
 }
 
 #box_credcard p#validade{
     position: relative;
     left: 30px;    
-    top: 30px;
+   // top: 30px;
 }
 
 #box_credcard p#card-number{
     position: relative;
     left: 30px;    
-    top: 45px;
+   // top: 45px;
 }
+
+
+#box_credcard p#erro{    
+    position: relative;
+    width: 378px;
+    left: 70px;
+    color: red;
+    font-size: larger;
+    text-align: center;
+    padding-top: 20px;
+}
+
+#box_credcard p#sucesso{
+    font-size: 18px;
+    left: 10px;
+    padding-bottom: 50px;
+    position: relative;
+    text-align: center;
+    top: 38px;
+}
+
 
 #box_credcard p#pagamento{
     position: relative;
     left: 30px;    
-    top: 55px;
 }
+
+#box_credcard a{
+    font-size: 18px;
+    position: relative;
+    left: 183px;   
+    top: 50px;    
+}
+
+#box_credcard #link_painel a{
+    font-size: 18px;
+    position: relative;
+    left: 143px;   
+    top: 50px;    
+}
+
 
 #box_credcard ol label[for='visa']{
     padding-left: 30px;    

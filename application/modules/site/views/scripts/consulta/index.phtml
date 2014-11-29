@@ -51,8 +51,6 @@
                     <?php if($this->logado):?>   
                     <div id="box_credcard" >
                             <h4>Cartões crédito</h4>
-                        
-                        
                             <ol>
                                 <li>
                                     <input type="radio" name="cardtype" id="visa">
@@ -69,14 +67,23 @@
                             </ol>
                             
                             <p id="titular">
-                                <label style="padding-right: 10px; padding-left: 0px;">Títular</label>  <input type="text" name="nome-titular" id="nome-titular" maxlength="19" >
+                                <label style="padding-right: 10px; padding-left: 0px;">Títular</label>  <input type="text" name="nome-titular" id="nome-titular" maxlength="30" >
                             </p>    
                             <P id="validade" >
                                 <label style="padding-right: 5px; padding-left: 0px;">validade</label>
                                 <select id="mes_validade">
-                                    <option>1</option><option>2</option><option>3</option><option>4</option>
-                                    <option>5</option><option>6</option><option>7</option><option>8</option><option>9</option>
-                                    <option>10</option><option>11</option><option>12</option>                                    
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>                                    
                                 </select>
                                 <select id="ano_validade"></select>
                             </P>
@@ -108,7 +115,7 @@
 
 
 
-<input type="hidden" value="<?php echo isset($this->info->id_horarios)? $this->info->id_horarios: 'Erro! nenhum horário selecionado'; ?>" name="id_horario" >
+<input type="hidden" id="id_horario" value="<?php echo isset($this->info->id_horarios)? $this->info->id_horarios: 0; ?>" name="id_horario" >
 
 
 <div id="dialog" title="Efetue login para continuar" style="display: none;">
