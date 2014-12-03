@@ -105,3 +105,9 @@
     background-color: red;
 }
 
+#column-center .erro {    
+    margin-left: 34px;    
+    color:red;
+    font-family: Arial;
+    font-size: 15px;
+}

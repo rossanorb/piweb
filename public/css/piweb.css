@@ -124,7 +124,6 @@ button[type="button"] {
     margin: 0;
     padding: 5px 34px;
     transition-duration: 0.5s;
-    //width: 117px;
 }
 
 button[type="button"]:hover {
@@ -132,7 +131,7 @@ button[type="button"]:hover {
     border: medium none;
 }
 
-input[type="text"], input[type="password"], form select {
+input[type="text"], input[type="email"], input[type="password"], form select {
     background: none repeat scroll 0 0 #fff;
     border: 1px solid #49809C;
     border-radius: 4px;
@@ -144,22 +143,20 @@ input[type="text"], input[type="password"], form select {
     padding: 5px;
 }
 
-input[type="text"]:hover, input[type="password"]:hover,form select:hover {
+input[type="text"]:hover,input[type="email"]:hover, input[type="password"]:hover,form select:hover {
     border: 1px solid #669900;
 }
 
 form dt{
     font-family: Verdana,Geneva;
-    font-size: 14px;
-    //font-weight: bolder;
+    font-size: 14px;    
     outline: 0 none;
     padding: 5px;    
 }
 
 form select{
     font-family: Verdana,Geneva;
-    font-size: 14px;
-    //font-weight: bolder;
+    font-size: 14px;    
     outline: 0 none;
     padding: 5px;
     color:#33596C;
@@ -228,8 +225,7 @@ a{
 
 #mainContent {
     width: 1280px;
-    min-height:595px;
-       // background-color: brown;        
+    min-height:595px;      
 }
 
 .columnContainer {
@@ -262,6 +258,30 @@ a{
                 url(/images/img_bottom_left.png) bottom left no-repeat,
                 url(/images/img_top_right.png) top right no-repeat;    
 }
+
+
+
+#quemsomos{    
+    width: 750px;
+    height: 366px;
+    margin: auto;
+    margin-top: 158px;
+    
+}
+
+#quemsomos #hbusca{
+    height: 78px; 
+}
+
+
+#quemsomos #info{
+    height: 313px;
+    background: url(/images/img_top_left.png) top left no-repeat,
+                url(/images/img_bottom_left.png) bottom left no-repeat,
+                url(/images/img_top_right.png) top right no-repeat;    
+}
+
+
 
 #infoContainer{
     width: 1280px;
@@ -330,12 +350,23 @@ a{
 
 .content{
     color:#49809c;
-    min-height: 355px;    
+    min-height: 265px;    
     margin-bottom: 30px;
     padding: 50px;
     background: url(/images/img_top_left.png) top left no-repeat,
                 url(/images/img_bottom_left.png) bottom left no-repeat,
                 url(/images/img_top_right.png) top right no-repeat;      
+}
+
+.content .consulta-historico{
+    width: 500px;
+    height: 350px;    
+}
+
+.content .consulta-historico ol{
+    float:left;
+    list-style: none;
+    text-align: center;
 }
 
 #login_cliente{
@@ -375,6 +406,16 @@ form ul.errors{
     list-style-type: none;
 }
 
+.column-left{
+    float: left;
+    font-family: Arial;
+    font-size: 17px;
+    min-height: 370px;
+    width: 340px;
+    margin-left: 30px;
+    background-color: #ccc;
+}
+
 .info_clinica{
     float: left;
     font-family: Arial;
@@ -400,7 +441,7 @@ form ul.errors{
 }
 
 .grade .horarios{     
-    min-height:200px;
+    min-height:50px;
     width: 600px;
    // background-color: #ccc;    
 }
@@ -432,6 +473,7 @@ form ul.errors{
 
 
 .grade .line{
+    float: left;
     height: 1px;
     width: 600px;
     background-color: #49809c;
@@ -455,7 +497,7 @@ form ul.errors{
 }
 
 .info_clinica #endereco{
-    min-height: 250px;
+    min-height: 199px;
     width: 340px;
 }
 

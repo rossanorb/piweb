@@ -1,0 +1,45 @@
+html, body {
+   width:100%;
+   height:100%;
+   padding: 0px;
+   margin: 0px;
+}
+ 
+#table {   
+   width: 100%;
+   height: auto;
+   display: table;
+   *overflow: hidden; /* hack para o IE6 e IE7 */
+   *position: relative; /* hack para o IE6 e IE7 */
+}
+ 
+#cell {
+   vertical-align: middle;
+   display: table-cell;
+   position: static;
+   *top: 50%; /* hack para o IE6 e IE7 */
+   *position: absolute; /* hack para o IE6 e IE7 */
+}
+ 
+.conteudo {
+   word-break: break-all; 
+   top: -50%;
+   width: 750px;
+   margin: auto;
+   position: relative;
+   //border:#444444 solid 1px;
+   padding:10px;
+   min-height: 330px;
+}
+
+.grade{    
+    float: none;
+    margin: auto;
+    min-height: 225px;
+    width: 600px;
+}
+
+.grade ol{
+    list-style: none;
+    margin-left: 100px;
+}

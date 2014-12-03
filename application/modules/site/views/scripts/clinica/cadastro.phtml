@@ -4,7 +4,11 @@
 <div class="columnContainer clearFix">
     <div class="content" align="center">
         <div style="width: 394px;text-align: left;">
-        <?php echo $this->form ?>
+        <?php if($this->id): ?>    
+            <p style="font-size:large;">Cadastro realizado com sucesso.Em breve será realizado um contato para autorização no sistema. <br> Após autorização você receberá uma senha de acesso.</p>
+        <?php else: ?>    
+        <?php echo $this->form ?>    
+        <?php endif; ?>        
         </div>    
     </div>
 </div>

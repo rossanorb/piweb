@@ -7,9 +7,11 @@
 $this->headTitle()->prepend('Agenda Fácil');
 $this->headTitle()->setSeparator(' - ');
 $this->headMeta()->headMeta ('Rossano Bavaresco', 'author');
+$this->headLink()->setSeparator(PHP_EOL)->prependStylesheet($this->baseUrl('/css/jquery-ui.css'));
 $this->headLink()->setSeparator(PHP_EOL)->prependStylesheet($this->baseUrl('/css/piweb.css'));
 
 $this->headScript()->setSeparator(PHP_EOL)->prependFile($this->baseUrl('/js/site.js'));
+$this->headScript()->setSeparator(PHP_EOL)->prependFile($this->baseUrl('/js/jquery-ui.js'));
 $this->headScript()->setSeparator(PHP_EOL)->prependFile($this->baseUrl('/js/jquery.mask.js'));
 $this->headScript()->setSeparator(PHP_EOL)->prependFile($this->baseUrl('/js/jquery-1.11.1.min.js'));
 
@@ -30,7 +32,7 @@ echo $this->headScript();
                                 <div id="arrow"  style="height: 20px;"></div>
                                 <div class="item" ><a href="<?php echo $this->baseUrl('/site/index/cadastrese') ?>"><p>Cadastre-se,é gratuíto</p><p>você só paga às consultas.</p></a></div>                                
                                 <div id="arrow"></div>
-                                <div class="item"><a href="#"><p>Como funciona</p></a></div>
+                                <div class="item"><a href="<?php echo $this->baseUrl('/')  ?>"><p>Home</p></a></div>
                                 <div id="arrow"></div>
                                 <div class="item"><a href="<?php echo $this->baseUrl('/site/index/login') ?>"><p>login</p></a></div>
                         </div>
@@ -42,7 +44,7 @@ echo $this->headScript();
                                <div id="arrow"></div>                               
                                <div class="item"><a href="<?php echo $this->baseUrl('site/clinica/login')?>"><p>Área administrativa</p></a></div>
                                <div id="arrow"></div>                                                              
-                               <div class="item"><a href="#"><p>Contato</p></a></div>
+                               <div class="item"><a href="/site/index/contato/"><p>Contato</p></a></div>
                         </div>
                 </nav>
             </header>
@@ -54,13 +56,13 @@ echo $this->headScript();
             <footer>
                 <div id="links" align="center">
                     <div>
-                        <span><a href="#1">quem somos</a></span>
+                        <span><a href="<?php echo $this->baseUrl('/')  ?>">home</a></span>
+                        <span>|</span>                        
+                        <span><a href="/site/index/quemsomos/">quem somos</a></span>
                         <span>|</span>
-                        <span><a href="#2">como funciona</a></span>
+                        <span><a href="/site/index/contato/">contato</a></span>
                         <span>|</span>
-                        <span><a href="#3">contato</a></span>
-                        <span>|</span>
-                        <span><a href="#4">cadastro</a></span>
+                        <span><a href="/site/clinica/cadastro">cadastro</a></span>
                     </div>                    
                     <span><img src="<?php echo $this->baseUrl('/images/fone.png')  ?>" border="0" ></span>
                     <span>51 3423-8911</span>                   

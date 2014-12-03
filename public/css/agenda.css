@@ -1,0 +1,59 @@
+.grade{    
+    float: none;
+    margin: auto;
+    min-height: 225px;
+  //  width: 600px;
+   width: 960px;
+}
+
+
+.grade .data{
+    width: 960px;
+}
+
+.grade .horarios {
+    min-height: 50px;
+    width: 960px;
+    text-align: center;
+}
+
+table{
+    width: 100%;
+}
+
+.grade ol{
+    list-style: none;
+    margin-left: 100px;
+}
+
+td{    
+   border-bottom: 1px solid  #769fb4;
+   border-left: 1px solid  #769fb4;
+   padding-left:5px;
+   padding-right: 5px;
+}
+
+thead{
+    background-color: #33596C;
+    color: #fff;
+}
+
+input[type="submit"] {
+    padding: 5px 7px;
+    margin-bottom: 5px;
+}
+
+input#disabled {
+    padding: 5px 7px;
+    margin-bottom: 5px;
+    background-color: #c0c0c0;
+}
+
+.grade .line {
+    background-color: #49809c;
+    float: left;
+    height: 1px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    width: 960px;
+}

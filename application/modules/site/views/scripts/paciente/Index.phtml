@@ -1,4 +1,52 @@
+<?php $this->headLink()->setSeparator(PHP_EOL)->appendStylesheet($this->baseUrl('/css/paciente.css')); ?>
 
-<div  align="center" class="columnContainer clearFix"><span class="title">Minhas Consultas</span></div>
-<div class="columnContainer clearFix"></div>
-<div class="columnContainer clearFix"></div> 
+<div  align="center" class="columnContainer clearFix"><span class="title">Painel de Consultas</span></div>
+<?php if(isset($this->dados)): ?>
+ <?php foreach ($this->dados as $nome => $dado ): ?>
+<div class="columnContainer clearFix"><h4 style="text-align:center;margin-top: 15px;"><?php echo $nome; ?></h4></div>
+<div class="columnContainer clearFix">
+    <div>
+        <div class="content">    
+
+                    <?php foreach ($dado as $value): ?>
+                    
+                    <div class="grade">
+                        <div class="data" <?php echo $value['ativo'] == 0 ? 'style="background-color: #c0c0c0;" ': ""   ?> > <?php echo $value['fdata'] ?> </div>
+                        <div class="horarios">
+                            <ol <?php echo $value['ativo'] == 0 ? 'style="color: #c0c0c0;" ': ""   ?> >
+                                <li>Horário: <?php echo $value['horario'] ?></li>
+                                <li>Médico: <?php echo $value['medico'] ?></li>                                
+                                <li>Especialidade: <?php echo $value['especialidades'] ?></li>
+                                <li>Clínica: <?php echo $value['clinica'] ?></li>
+                                
+                                <li><?php echo " Endereço: {$value['rua']},  {$value['numero']}, {$value['complemento']} - {$value['bairro']} <br> Telefone: {$value['telefone']} " ?></li>
+                                
+                            </ol>
+                        </div>
+                        <div class="line" <?php echo $value['ativo'] == 0 ? 'style="background-color: #c0c0c0;" ': ""   ?>></div>
+                    
+                    </div>        
+                    <?php endforeach; ?>
+                
+                           
+        </div>    
+    </div>    
+</div>
+ <?php endforeach; ?>
+<?php else:?>
+    <div class="columnContainer clearFix"><h4 style="text-align:center;margin-top: 15px;"><?php
+        $session = new Zend_Session_Namespace('session');
+        echo $session->paciente_info['nome']; 
+    ?>
+    </h4></div>
+
+    <div>
+        <div class="content"><h4 style="text-align: center;">Nenhum agendamento</h4>
+        </div>    
+    </div> 
+
+
+<?php endif; ?>
+
+
+ 

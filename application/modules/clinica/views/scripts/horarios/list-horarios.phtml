@@ -1,0 +1,38 @@
+<?php 
+if(isset($this->dados)):
+    foreach ($this->dados as  $data => $id_horarios):
+?>
+
+    <div class="hg">
+        <div class="dia">
+            <?php echo $data ?>
+            <span class="excluir">x</span>
+        </div> 
+
+        <?php foreach ($id_horarios as $id => $horarios):
+                foreach($horarios as $horario):
+        ?>            
+        <div class="grid-horarios">
+            <div class="horario"><?php echo $horario ?></div><div><span id="<?php echo $id ?> "  title="excluir <?php echo $horario ?> " class="excluir">x</span></div>
+        </div>
+        <?php 
+                endforeach;
+            endforeach;
+        ?>
+
+    </div>
+
+<?php
+    endforeach;
+endif;
+?>
+
+
+<script type="text/javascript">
+    $(".excluir").click(function(){    
+       var id_medico = $("#medicos").val(); 
+       var id =  $(this).attr('id');       
+       AjaxRequest('/clinica/horarios/dl/id/'+id,'POST','.erro');       
+       AjaxRequest('/clinica/horarios/list-horarios/id/'+id_medico,'POST','#column-right');
+    });	
+</script>

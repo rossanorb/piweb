@@ -28,7 +28,10 @@ class Site_IndexController extends Zend_Controller_Action{
     }
     
     public function buscaAction(){
-        
+        $this->view->form = new Form_Busca();
+        $id = $this->_getParam('especialidade');        
+        $buscahorarios = new Model_buscahorarios();
+        $this->view->dados = $buscahorarios->getHorarios($id);
     }
     
     private function insertCliente($formFields){
@@ -93,6 +96,32 @@ class Site_IndexController extends Zend_Controller_Action{
         
     }
     
+    public function loginxAction(){        
+ 	$this->_helper->layout->disableLayout();        
+        $this->_helper->viewRenderer->setNoRender();
+        $formFields['email'] = $this->_getParam('email');
+        $formFields['senha'] = $this->_getParam('senha');        
+        $pacientes = new Model_DbTable_pacientes();
+        $dados['status'] = FALSE;
+        $dados['error'] = 'Erro de autenticação';
+        
+        if(!filter_var($formFields['email'], FILTER_VALIDATE_EMAIL)){
+            $dados['error'] = 'email inválido';
+        }else if(strlen($formFields['senha']) < 6 ){
+            $dados['error'] = 'senha inválida ';
+        }else{
+        
+            if($pacientes->authenticate($formFields)){
+                $dados['status'] = TRUE;
+            }else{
+                 $dados['error'] = "usuário ou senha inválidos";
+            }
+            
+        }    
+        
+        echo Zend_Json::encode($dados);        
+    }
+
     public function loginAction(){
         
         if( $this->_request->getParam('auth') == 'erro')
@@ -121,14 +150,13 @@ class Site_IndexController extends Zend_Controller_Action{
         
     }    
     
-    public function cadastroAction(){
-        $this->_helper->layout->disableLayout();
-        $this->_helper->view->render->setNoRender();
-        
-    }       
+    public function cadastroAction(){}       
     
     public function logoutAction() {
+            
             Zend_Auth::getInstance()->clearIdentity();
+            $session = new Zend_Session_Namespace('session');
+            $session->unsetAll();
             $this->_redirect('/');
     }
     
@@ -152,7 +180,10 @@ class Site_IndexController extends Zend_Controller_Action{
         }
         
 
-    }    
+    } 
     
+    public function quemsomosAction(){}
+    
+    public function contatoAction(){}
     
 }

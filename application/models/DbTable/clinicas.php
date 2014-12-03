@@ -21,8 +21,19 @@ class Model_DbTable_clinicas extends Zend_Db_Table_Abstract{
             'complemento' => $formFields['complemento'],
             'bairro' => $formFields['bairro'],
             'cep' => $formFields['cep'],
-            'telefone' => $formFields['telefone']
+            'telefone' => $formFields['telefone'],
+            'senha' => md5(102030)
         ));
+        
+        $medicos = new Model_DbTable_medicos();
+        $lista =  $medicos->getMedicos();
+        
+        // vincula todos os médicos cadastrados no sistema a nova clinica
+        foreach ($lista as $medico){
+            $sql = "Insert into clinicas_medicos (id_medico, id_clinica) VALUES ( {$medico['id_medico']}, {$this->id} ) ";
+            $this->db->query($sql);
+        }
+                
         return $this->id;
     }
     
@@ -31,13 +42,17 @@ class Model_DbTable_clinicas extends Zend_Db_Table_Abstract{
             $this->update(array('logo'=>$filename), "id_clinica =  $id ");
         }
     }
-    
-    
+
+    private function getIdClinica($cnpj){
+        $data =$this->fetchRow("cnpj like '$cnpj' ");
+	return  $data['id_clinica'];
+    }
+
     public function authenticate($formFields){
         $auth = Zend_Auth::getInstance();        
         $authAdapter = new Zend_Auth_Adapter_DbTable( $this->db,'clinicas','cnpj','senha','MD5(?)');        
         $authAdapter->setIdentity($formFields['cnpj']);
-        $authAdapter->setCredential($formFields['senha']);        
+        $authAdapter->setCredential($formFields['senha']);
         $result = $auth->authenticate($authAdapter);
         
         switch ($result->getCode()){
@@ -50,6 +65,9 @@ class Model_DbTable_clinicas extends Zend_Db_Table_Abstract{
                 break;
 
             case Zend_Auth_Result::SUCCESS:
+                 $id_clinica = $this->getIdClinica($formFields['cnpj']);                 
+                 $session = new Zend_Session_Namespace('session');                    
+                 $session->id_clinica = $id_clinica;                
                  return true;
                 break;
 

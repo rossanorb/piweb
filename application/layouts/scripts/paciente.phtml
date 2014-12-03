@@ -27,20 +27,15 @@ echo $this->headScript();
                 <nav>                    
                         <div id="pacientes">
                                 <div style="width: 250px;" class="title">&nbsp;</div>                            
-                                <div id="arrow"  style="height: 20px;"></div>
-                                <div class="item" ><a href="<?php echo $this->baseUrl('/site/index/cadastrese') ?>"><p>histórico de consultas</p><p>anteriores.</p></a></div>                                
-                                <div id="arrow"></div>
-                                <div class="item"><a href="<?php echo $this->baseUrl('site/index/busca') ?>"><p>marcar consulta</p></a></div>
-                                <div id="arrow"></div>
-                                <div class="item"><a href="<?php echo $this->baseUrl('/site/index/logout') ?>"><p>logout</p></a></div>
+                                <div id="arrow"  style="height: 20px;"></div>                                
+                                <div class="item"><a href="<?php echo $this->baseUrl('/site/index/busca/') ?>"><p>marcar consulta</p></a></div>
+                                
                         </div>
                     
                         <div id="clinicas">
-                               <div style="width: 250px;" class="title">&nbsp;</div>
-                               <div id="arrow"></div>
-                               <div class="item"><a href="#"><p>ajuda</p></a></div>
-                               <div id="arrow"></div>                               
-                               <div class="item"><a href="#"><p>contato</p></a></div>
+                               <div style="width: 250px;" class="title">&nbsp;</div>                               
+                                <div id="arrow"></div>
+                                <div class="item"><a href="<?php echo $this->baseUrl('/site/index/logout') ?>"><p>logout</p></a></div>
                         </div>
                 </nav>
             </header>

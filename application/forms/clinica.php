@@ -41,11 +41,7 @@ class Form_Clinica extends Zend_Form{
         $responsavel->setLabel('Nome do responsável')
                 ->setRequired(true)
                 ->addFilter('StringTrim')
-                ->addValidators(array(
-                    array('NotEmpty','breakChainOnFailure'=>true),
-                    array('alnum','breakChainOnFailure'=>true),                    
-                    array('validator'=>'stringLength', 'options'=>array(2,200))
-                    ));        
+                 ->addValidator('stringLength',false, array(2,200));
         $this->addElement($responsavel);
         
         // ******* rua ********************************************

@@ -38,6 +38,6 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap{
 //           $db = $this->bootstrap('Db')->getResource('Db');
 //           Zend_Registry::getInstance()->set('db', $db); 
 //        }        
-    
+       
 }
 

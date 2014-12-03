@@ -1,0 +1,25 @@
+.conteudo {    
+    width: 489px;    
+}
+
+.item-list-medico{
+    //margin-left: 276px;
+    margin-left: 130px;
+}
+
+#submit-element{
+    color:red;
+}
+
+
+dd textarea {
+    background: none repeat scroll 0 0 #fff;
+    border: 1px solid #49809C;
+    border-radius: 4px;
+    box-shadow: 1px 1px 3px #999;
+    font-family: Verdana,Geneva;
+    font-size: 14px;
+    //font-weight: bolder;
+    outline: 0 none;
+    padding: 5px;
+}

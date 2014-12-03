@@ -1,0 +1,135 @@
+<?php $this->headLink()->setSeparator(PHP_EOL)->appendStylesheet($this->baseUrl('/css/credcard.css')); ?>
+<?php $this->headScript()->setSeparator(PHP_EOL)->prependFile($this->baseUrl('/js/site/consulta/consulta.js')); ?>
+
+<div  align="center" class="columnContainer clearFix"><span class="title">Agendamento de Consultas</span></div>
+<div class="columnContainer clearFix">
+    <div id="agbusca">
+        <div id="select">
+            <div class="dropdown">
+
+            </div>
+        </div>        
+
+    </div>                    
+</div>
+<div class="columnContainer clearFix">
+    <?php if(isset($this->info->nome)): ?>
+        <div>
+                <div class="content">                        
+                    <div class="info_clinica">                           
+                        <div id="nome" ><?php echo $this->info->nome ?></div>                            
+                        <div id="logo"><div>foto</div></div>
+                        <div id="endereco">Endereço: <?php echo $this->info->rua ?><br>nº <?php echo $this->info->numero ?>, <?php echo $this->info->complemento ?><br><?php echo $this->info->bairro ?><br>Telefone: <?php echo $this->info->telefone; ?></div>                           
+                    </div> 
+
+                    <div class="grade">
+                        <div class="data"><?php echo $this->info->fdata; ?></div>
+                        <div class="horarios">
+
+                         <!-- array left -->   
+                        
+                            <div class="column">
+                                <div class="radio">&nbsp;</div><div  style="font-size: 20px;">Hor&aacute;rio: <?php echo $this->info->horario; ?></div>
+                            </div>
+                        
+
+                         <!-- array right -->   
+                        
+                            <div class="column">
+                                <div class="radio">&nbsp;</div><div  style="font-size: 20px;" >valor : R$ 20,00</div>
+                            </div>
+                        
+                         
+                        </div>
+                        <div class="line"></div>
+                        <div class="bt-consulta">
+                            <?php if(!$this->logado):?>
+                            <button type="button" id="fazer_login" name="bt">Fazer Login</button>
+                            <?php endif; ?>
+                        </div>
+                    </div>     
+                    <?php if($this->logado):?>   
+                    <div id="box_credcard" >
+                            <h4>Cartões crédito</h4>
+                            <ol>
+                                <li>
+                                    <input type="radio" name="cardtype" id="visa">
+                                    <label title="Visa" for="visa" alt="Visa">&nbsp;</label>
+                                </li>
+                                <li>
+                                    <input type="radio" name="cardtype" id="master" >
+                                    <label title="Master" for="master">&nbsp;</label>
+                                </li>                            
+                                <li>
+                                    <input type="radio" name="cardtype" id="amex">
+                                    <label title="Amex" for="amex">&nbsp;</label>
+                                </li>                                                            
+                            </ol>
+                            
+                            <p id="titular">
+                                <label style="padding-right: 10px; padding-left: 0px;">Títular</label>  <input type="text" name="nome-titular" id="nome-titular" maxlength="30" >
+                            </p>    
+                            <P id="validade" >
+                                <label style="padding-right: 5px; padding-left: 0px;">validade</label>
+                                <select id="mes_validade">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>                                    
+                                </select>
+                                <select id="ano_validade"></select>
+                            </P>
+                            <p id="card-number">
+                                <label style="padding-right: 5px; padding-left: 0px;">Número</label><input type="text" name="card-number" id="card-number"  maxlength="16"  >                            
+                                <input type="text" name="secure-number" id="secure-number"  maxlength="3" >
+                            </p>    
+                            <?php if($this->logado):?>
+                            <p id="pagamento">
+                                <button type="button" id="pagamento" name="bt">Pagamento</button>
+                            </p>    
+                            <?php endif;?>                            
+                    </div>
+                    <?php endif; ?>
+                </div>    
+        </div>
+    <?php else: ?>
+        <div>
+            <div class="content"> 
+                <div style="margin-left: 485px; margin-top: 10px;font-size: 26px; color: red;"><p>Erro! nenhum horário selecionado</p></div>                    
+            </div>
+        </div>
+    <?php endif; ?>
+        
+</div>
+
+
+
+
+
+
+<input type="hidden" id="id_horario" value="<?php echo isset($this->info->id_horarios)? $this->info->id_horarios: 0; ?>" name="id_horario" >
+
+
+<div id="dialog" title="Efetue login para continuar" style="display: none;">
+    <form method="post" action="/site/index/loginx" enctype="application/x-www-form-urlencoded" name="loginx" id="loginx"><dl class="zend_form">
+    <dt id="email-label"><label class="required" for="email">E-email</label></dt>
+    <dd id="email-element">
+    <input type="email" required value="" id="email" name="email"></dd>
+    <dt id="senha-label"><label class="required" for="senha">Senha</label></dt>
+    <dd id="senha-element">
+    <input type="password" value="" id="senha" name="senha"></dd>
+    <dt id="submit-label" style="color:red;" >&nbsp;</dt><dd id="submit-element">        
+        <button type="button" id="login" name="bt">Login</button>
+    </dd></dl></form>
+    
+    <!--   <button id="close">fechar</button> -->
+
+</div>

@@ -33,7 +33,7 @@ class Site_ClinicaController extends Zend_Controller_Action{
                      print 'não foi possível realizar o seu cadastro';
                  }
 
-                
+                 $this->view->id = $id;
             }else{
                 $this->view->form->populate($formFields); // form inválido, recupera campos preenchidos
             }
@@ -66,7 +66,7 @@ class Site_ClinicaController extends Zend_Controller_Action{
             $formFields = $this->_request->getPost();
             if($this->view->form->isValid($formFields)){
                  $clinicas = new Model_DbTable_clinicas();
-                 if($clinicas->authenticate($formFields)){
+                 if($clinicas->authenticate($formFields)){                                          
                      $this->_redirect('/clinica/agenda/');
                  }else{
                      $this->_redirect('/site/clinica/login');

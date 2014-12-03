@@ -1,0 +1,122 @@
+#box_credcard{
+    width:500px;
+    height: 225px;    
+    float: right;
+    border: 1px solid;
+    position: relative;
+    right: 265px;
+    top: 31px;    
+}
+
+#box_credcard h4{
+    padding: 5px;
+    border-bottom: 1px solid;
+    text-align: center;
+    background-color: #49809c;
+    color: #fff;
+}
+
+#box_credcard ol {
+    height: 20px;
+    left: 158px;
+    list-style: none outside none;
+    padding-left: 8px;
+    padding-bottom: 15px;
+    position: relative;
+    top: 10px;
+    width: 200px;
+}
+
+#box_credcard ol li{
+    float: left;
+    padding-left: 5px;
+    padding-right: 5px;
+    height: 20px;
+}
+
+#box_credcard p{
+    padding-bottom: 8px;
+}
+
+#box_credcard p#titular{
+    position: relative;
+    left: 30px;    
+   // top: 15px;
+}
+
+#box_credcard p#validade{
+    position: relative;
+    left: 30px;    
+   // top: 30px;
+}
+
+#box_credcard p#card-number{
+    position: relative;
+    left: 30px;    
+   // top: 45px;
+}
+
+
+#box_credcard p#erro{    
+    position: relative;
+    width: 378px;
+    left: 70px;
+    color: red;
+    font-size: larger;
+    text-align: center;
+    padding-top: 20px;
+}
+
+#box_credcard p#sucesso{
+    font-size: 18px;
+    left: 10px;
+    padding-bottom: 50px;
+    position: relative;
+    text-align: center;
+    top: 38px;
+}
+
+
+#box_credcard p#pagamento{
+    position: relative;
+    left: 30px;    
+}
+
+#box_credcard a{
+    font-size: 18px;
+    position: relative;
+    left: 183px;   
+    top: 50px;    
+}
+
+#box_credcard #link_painel a{
+    font-size: 18px;
+    position: relative;
+    left: 143px;   
+    top: 50px;    
+}
+
+
+#box_credcard ol label[for='visa']{
+    padding-left: 30px;    
+    padding-top: 1px;        
+    background-image: url("/images/visa.png");
+}
+
+#box_credcard ol label[for='master']{
+    padding-left: 32px;
+    padding-bottom: 2px;
+    padding-top: 2px;    
+    background-image: url("/images/master.png");    
+}
+
+#box_credcard ol label[for='amex']{
+    padding-left: 28px;    
+    background-image: url("/images/amex.png");    
+}
+
+#box_credcard #secure-number{
+    width: 50px;
+}
+
+

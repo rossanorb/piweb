@@ -50,6 +50,40 @@ $(document).ready(function(){
     $('#cep').mask('99999-999');
     $('#telefone').mask("(99) 9999-99999", {placeholder: "(__) ____-_____"});    
     $('#numero').mask('99999999');
+    $('input#card-number').mask('0000 0000 0000 0000');
+
+
+    $('#bt #button').click(function(){
+         var id = $("select#especialidades").val();
+         if(id >0 ){
+             $(window.document.location).attr('href','/site/index/busca/especialidade/'+id);
+         }
+    });
     
+    
+    $('.bt-confirma #button').click(function(){
+         var n = $( "input:checked" ).length;
+         
+         if(n == 0){
+             alert('Nenhum horário selecionado!');
+         }else if(n > 1){
+             alert('Só é possível selecionar um horário ');
+         }else{
+             var id_horario =  $("input[type='checkbox']:checked").attr('id');
+             
+             if(id_horario > 0 ){
+                $(window.document.location).attr('href','/site/consulta/index/id/'+id_horario);
+             }
+
+         }        
+             
+    });
+    
+    
+
+
+
     
 });
+
+

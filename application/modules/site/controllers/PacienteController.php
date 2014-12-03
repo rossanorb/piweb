@@ -10,7 +10,12 @@ class Site_PacienteController extends Zend_Controller_Action{
     }
     
     public function indexAction(){
-        print 'você está logado';
+        
+        
+        
+        $consultas = new Model_DbTable_consulta();
+        $this->view->dados = $consultas->getConsultas();
+       
         
     }
     

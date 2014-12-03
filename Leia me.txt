@@ -1,0 +1,3 @@
+Sistema desenvolvido com Framework Zend em PHP
+MySql 
+Apache 2.4 

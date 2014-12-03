@@ -1,0 +1,55 @@
+<?php $this->headLink()->setSeparator(PHP_EOL)->appendStylesheet($this->baseUrl('/css/clinica/atendimento.css')); ?>
+<?php $this->headScript()->setSeparator(PHP_EOL)->prependFile($this->baseUrl('/js/clinica/atendimento.js')); ?>
+
+<div  align="center" class="columnContainer clearFix"><span class="title">Gerenciamento clínico</span></div>
+<div class="columnContainer clearFix">
+    <div class="content">        
+        
+        <div id="table">
+            <div id="cell">
+                <div class="conteudo">
+                    
+                    <div id="gridlist-medicos" >                        
+                        
+                        
+                        <div style="width: 394px;text-align: left;">
+                            
+                            <?php if(isset($this->dado->nome)): ?>
+                            
+                            
+                                    <form method="post" action="/clinica/atendimento/finalizar/" enctype="application/x-www-form-urlencoded" name="paciente" id="cliente"><dl>                                    
+                                            <dl>
+                                                <dt id="nome-label"><label>Nome Completo:</label><?php echo $this->dado->nome  ?></dt>                                        
+                                                <dt id="data-label"><label>Data de Nascimento:</label><?php echo $this->dado->dta_nasc;  ?></dt>                                        
+                                            </dl>                                    
+
+                                            <dd id="historico">
+                                                <textarea rows="12" cols="48" id="paciente_historico" name="paciente_historico">asdasdas asd asd asdasd asd</textarea>
+
+                                            </dd>                                    
+
+                                            <dt id="submit-label">&nbsp;</dt>
+                                            <dd id="submit-element"><input type="submit" value="Finalizar Atendimento" id="submit" name="submit"></dd>                                    
+                                        </dl>
+
+                                        <input type="hidden" id="id_paciente" name="id_paciente" value="<?php echo $this->dado->id_paciente ?>" >
+                                        <input type="hidden" id="id_consulta" name="id_consulta" value="<?php echo $this->dado->id_consulta ?>" >
+                                        <input type="hidden" id="id_horarios" name="id_horarios" value="<?php echo $this->dado->id_horarios ?>" >                                
+                                    </form>
+                                <?php else: ?>
+                                    <h4 style="text-align: center;">Nenhum Atendimento no momento. <br> Clique em atualizar para verificar novamente</h4>
+                                    <h3 style="text-align: center;"> <a href="/clinica/atendimento/atendimento/">atualizar</a></h3>                                    
+                                <?php endif; ?>
+                        </div> 
+                        
+                        
+                    </div>
+                         
+                         
+                </div>                
+            </div>
+        </div>
+        
+    </div> 
+</div>
+<div class="columnContainer clearFix"></div> 

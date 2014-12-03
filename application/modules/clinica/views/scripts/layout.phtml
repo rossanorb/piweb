@@ -31,18 +31,20 @@ echo $this->headScript();
                 <nav>                    
                         <div id="pacientes">
                                 <div style="width: 250px;" class="title">&nbsp;</div>                            
-                                <div id="arrow"  style="height: 20px;"></div>
-                                <div class="item" ><a href="<?php echo $this->baseUrl('/clinica/medicos/') ?>"><p>cadastro de médicos</p></a></div>                                
                                 <div id="arrow"></div>
                                 <div class="item"><a href="<?php echo $this->baseUrl('clinica/horarios/') ?>"><p>cadastro de horários</p></a></div>
                                 <div id="arrow"></div>
                                 <div class="item"><a href="<?php echo $this->baseUrl('/clinica/agenda/') ?>"><p>agenda</p></a></div>
+                                <div id="arrow"  style="height: 20px;"></div>
+                                <div class="item" ><a href="<?php echo $this->baseUrl('/clinica/atendimento/') ?>"><p>atendimento</p></a></div>                                
                         </div>
                     
                         <div id="clinicas">
                                <div style="width: 250px;" class="title">&nbsp;</div>
                                <div id="arrow"></div>
                                <div class="item"><a href="<?php echo $this->baseUrl('/site/index/logout') ?>"><p>logout</p></a></div>
+                               <div id="arrow"></div>
+                               <div class="item"><a href="<?php echo $this->baseUrl('/') ?>"><p>home</p></a></div>
                                
                         </div>
                 </nav>

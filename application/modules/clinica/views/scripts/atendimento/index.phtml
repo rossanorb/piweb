@@ -1,0 +1,37 @@
+<?php $this->headLink()->setSeparator(PHP_EOL)->appendStylesheet($this->baseUrl('/css/clinica/atendimento.css')); ?>
+<?php $this->headScript()->setSeparator(PHP_EOL)->prependFile($this->baseUrl('/js/clinica/atendimento.js')); ?>
+
+<div  align="center" class="columnContainer clearFix"><span class="title">Gerenciamento clínico</span></div>
+<div class="columnContainer clearFix">
+    <div class="content">        
+        
+        <div id="table">
+            <div id="cell">
+                <div class="conteudo">
+                    
+                    <div id="gridlist-medicos" >                        
+                        
+                        <div class="item-list-medico">
+                            
+                            <dl >
+                            <dt id="email-label"><label class="required" for="user">Usuário</label></dt>
+                            <dd id="email-element">
+                                <input type="text" value="" id="user" name="user"></dd>
+                            <dt id="senha-label"><label class="required" for="senha">Senha</label></dt>
+                            <dd id="senha-element">
+                                <input type="password" value="" id="senha" name="senha"></dd>
+                            <dt id="submit-label">&nbsp;</dt><dd id="submit-element">
+                            <input type="submit" value="Login" id="autenticar_medico" name="submit"></dd></dl>                            
+                            
+                        </div>                       
+                        <h3 style="text-align: center;margin-top: 15px;">Este é o médulo de atendimento médico.<br> Para acessar informe seu usuário e senha</h3>
+                    </div>
+                         
+                         
+                </div>                
+            </div>
+        </div>
+        
+    </div> 
+</div>
+<div class="columnContainer clearFix"></div> 
