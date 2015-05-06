@@ -69,7 +69,7 @@ class Model_DbTable_Horarios extends Zend_Db_Table_Abstract{
     
     public function getListHorarios($id_medico){
         $session = new Zend_Session_Namespace('session');        
-        $sql ="SELECT  id_horarios, id_clinica, id_medico, DATE(data) as fdata, valor, DATE_FORMAT(data,'%H:%i') as horario  FROM horarios WHERE  id_clinica = {$session->id_clinica} and id_medico = $id_medico ORDER BY data";
+        $sql ="SELECT  id_horarios, id_clinica, id_medico, DATE(data) as fdata, valor, DATE_FORMAT(data,'%H:%i') as horario  FROM horarios WHERE  id_clinica = {$session->id_clinica} and id_medico = $id_medico and data BETWEEN ADDDATE(CURDATE(),INTERVAL -15 DAY) AND ADDDATE(data,INTERVAL 1 MONTH) ORDER BY data";
         $stmt = $this->db->query($sql);
         @$dados = $stmt->fetchAll();
         
@@ -159,7 +159,7 @@ class Model_DbTable_Horarios extends Zend_Db_Table_Abstract{
                 
     }
     
-    public function getHorariosToday(){
+    public function getHorarios($data){
         $session = new Zend_Session_Namespace('session');
         
         $sql = "SELECT 
@@ -182,7 +182,7 @@ class Model_DbTable_Horarios extends Zend_Db_Table_Abstract{
                 join clinicas_medicos clm ON ( clm.id_medico = m.id_medico AND clm.id_clinica = hrs.id_clinica )
                 join clinicas cl ON ( cl.id_clinica = clm.id_clinica )
                 WHERE 
-                hrs.data >= NOW() AND cl.id_clinica = {$session->id_clinica}   
+                DATE(hrs.data) = '{$data}' AND cl.id_clinica = {$session->id_clinica}   
                 OR ( c.st_atend  IS NULL AND c.st_atend = 0  AND c.st_atend = 1 )
                 ORDER BY hrs.data DESC
                  ";

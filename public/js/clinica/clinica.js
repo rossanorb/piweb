@@ -17,7 +17,7 @@ function  has_medico(id_medico){
     return false;
 }
 
-function has_horario(n){            
+function has_horario(n){
     if(n<=0){
         $(".erro").html("<p>selecione ao menos</p>  <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; um horário</p>");
         return false;
@@ -47,7 +47,14 @@ $(function() {
         
     });
     
-
+    $( "#select-datas" ).datepicker({
+        dateFormat: 'dd/mm/yy',
+        dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado','Domingo'],
+        dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
+        dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
+        monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+        monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'],        
+    });
         
     $("#add").click(function(){
             var data = $("#data");
@@ -79,6 +86,7 @@ $(function() {
                 success     : function(data){
                     if(data.status){
                         alert("horarios adicionados \n com sucesso!");
+                        $('#column-right').html(data.html);
                     }
                     else{
                         alert(data.error);
@@ -87,29 +95,28 @@ $(function() {
                 }
             });
             
-            AjaxRequest('/clinica/horarios/list-horarios/id/'+id_medico,'POST','#column-right');
+          // AjaxRequest('/clinica/horarios/list-horarios/id/'+id_medico,'POST','#column-right');
                 
     });
     
+
     
-    $(".excluir").click(function(){        
-       var id_medico = $("#medicos").val(); 
-       var id =  $(this).attr('id');       
-       AjaxRequest('/clinica/horarios/dl/id/'+id,'POST','.erro');       
-       AjaxRequest('/clinica/horarios/list-horarios/id/'+id_medico,'POST','#column-right');
-    });
-    
-    $('form#atendimento').click(function(e){
-        e.preventDefault();
-        
+    $('form#atendimento').click(function(){
+                
         var decision = confirm("Confirma atendimento? \n processo só poderá ser cancelado pelo médico ");
         
-        if(decision){         
-             var id = $(this).attr('id');            
+        if(decision){
+             var id = $(this).attr('id'); 
             $('form[name="atendimento_'+id+'"]').submit()
         }
         
       
+    });
+    
+    $('#listar-data').click(function(){
+       var dta = $('#select-datas').val();
+       var d = dta.split('/');       
+       $(window.document.location).attr('href','/clinica/agenda/index/data/'+d[2]+'-'+d[1]+'-'+d[0]);
     });
 
     

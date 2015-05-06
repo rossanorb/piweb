@@ -5,8 +5,11 @@ if(isset($this->dados)):
 
     <div class="hg">
         <div class="dia">
-            <?php echo $data ?>
-            <span class="excluir">x</span>
+            <?php
+                $fdata = substr($data, 8, 2) . '/' . substr($data, 5, 2) . '/' . substr($data, 0, 4); 
+                echo $fdata
+            ?>
+            
         </div> 
 
         <?php foreach ($id_horarios as $id => $horarios):
@@ -29,10 +32,9 @@ endif;
 
 
 <script type="text/javascript">
-    $(".excluir").click(function(){    
+    $('.excluir').on('click', function(){
        var id_medico = $("#medicos").val(); 
        var id =  $(this).attr('id');       
-       AjaxRequest('/clinica/horarios/dl/id/'+id,'POST','.erro');       
-       AjaxRequest('/clinica/horarios/list-horarios/id/'+id_medico,'POST','#column-right');
-    });	
+       AjaxRequest('/clinica/horarios/dl/id/'+id+'/id_medico/'+id_medico,'POST','#column-right');
+    });    
 </script>

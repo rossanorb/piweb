@@ -119,6 +119,16 @@ class Form_Clinica extends Zend_Form{
                 ->addValidator(new Zend_Validate_Regex( '/\([0-9]{2}\) [0-9]{4}-[0-9]{4}/'  ))
         	->addErrorMessage('formato inválido (DD) 0000-00000');
         $this->addElement($tel_contato);
+        
+        
+        // ***** email *******************************************        
+	$email = new Zend_Form_Element_Text('email');
+        $email->setLabel('E-email')
+                ->setRequired(true)
+                ->addValidator(new Zend_Validate_EmailAddress())
+                ->addErrorMessage('formato do email é inválido')
+                ->addValidator('stringLength', false, array(0, 60));
+        $this->addElement($email);        
    
         
         // ************ Foto *********************************

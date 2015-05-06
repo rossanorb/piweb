@@ -4,8 +4,9 @@ class Clinica_AtendimentoController extends Zend_Controller_Action{
     
     public function init() {
         parent::init();        
-         $auth = Zend_Auth::getInstance();
-         if(!$auth->hasIdentity()) $this->_redirect ('site/clinica/login');         
+        $auth = Zend_Auth::getInstance();
+        $session = new Zend_Session_Namespace('session');        
+        if(!$auth->hasIdentity() || $session->tipo != 'CLINICA') $this->_redirect ('/site/clinica/login');         
     }    
     
     public function indexAction(){
@@ -58,7 +59,7 @@ class Clinica_AtendimentoController extends Zend_Controller_Action{
     
     public function finalizarAction(){
         
-        if ($this->_request->isPost()) { 
+        if ($this->_request->isPost()) {
         
             $post = $this->_request->getPost();
             

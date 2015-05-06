@@ -2,11 +2,16 @@
 <?php $this->headScript()->setSeparator(PHP_EOL)->prependFile($this->baseUrl('/js/clinica/clinica.js')); ?>
 
 <div  align="center" class="columnContainer clearFix"><span class="title">Gerenciamento clínico</span></div>
-<div class="columnContainer clearFix"></div>
+<div class="columnContainer clearFix">
+    <div style="margin:auto;width:213px;">
+        <input type="text" id="select-datas">
+        <button type="button" id="listar-data" name="bt" style="margin-top:5px;">listar</button>
+   </div>
+</div>
 <div class="columnContainer clearFix">
     <div class="content">
         <div class="grade">
-            <div class="data">Agenda para  <?php echo date('d/m/Y') ?> </div>
+            <div class="data">Agenda para  <?php echo $this->data; ?> </div>
             <div class="horarios">
                 <table border="0" cellpadding="0" cellspacing="5">
             <?php if(isset($this->dados)): ?>       

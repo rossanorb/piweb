@@ -5,7 +5,8 @@ class Site_PacienteController extends Zend_Controller_Action{
     public function init() {
         parent::init();        
          $auth = Zend_Auth::getInstance();
-         if(!$auth->hasIdentity()) $this->_redirect ('site/index/login');
+         $session = new Zend_Session_Namespace('session'); 
+         if(!$auth->hasIdentity() || !isset($session->paciente_info) ) $this->_redirect ('site/index/login');
          $this->_helper->layout->setLayout('paciente');
     }
     

@@ -1,0 +1,14 @@
+<?php $this->headScript()->setSeparator(PHP_EOL)->prependFile($this->baseUrl('/js/site/clinica/cadastro.js')); ?>
+<div class="columnContainer clearFix" align="center"><span class="title">Cadastro M&eacute;dico</span></div>
+<div class="columnContainer clearFix"></div>
+<div class="columnContainer clearFix">
+    <div class="content" align="center">
+        <div style="width: 394px;text-align: left;">
+        <?php if($this->id): ?>    
+            <p style="font-size:large;">Cadastro realizado com sucesso.E dados de acesso enviados para email cadastrado</p>
+        <?php else: ?>    
+        <?php echo $this->form; ?>    
+        <?php endif; ?>        
+        </div>    
+    </div>
+</div>

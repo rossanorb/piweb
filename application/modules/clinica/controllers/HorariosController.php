@@ -4,8 +4,9 @@ class Clinica_HorariosController extends Zend_Controller_Action{
     
     public function init() {        
         parent::init();                              
-         $auth = Zend_Auth::getInstance();
-         if(!$auth->hasIdentity()) $this->_redirect ('site/clinica/login');
+        $auth = Zend_Auth::getInstance();
+        $session = new Zend_Session_Namespace('session');
+        if(!$auth->hasIdentity() || $session->tipo != 'CLINICA') $this->_redirect ('site/clinica/login');
     }    
     
     public function indexAction(){
@@ -57,7 +58,10 @@ class Clinica_HorariosController extends Zend_Controller_Action{
          $horarios = new Model_DbTable_Horarios();
          $horarios->add($dados);
          
-         
+         $horarios = new Model_DbTable_Horarios();
+         $this->view->dados = $horarios->getListHorarios($id_medico);         
+         $view = $this->getHelper('ViewRenderer')->view;         
+         $dados['html'] = $view->render('horarios/list-horarios.phtml');
          
          echo Zend_Json::encode($dados);
         
@@ -67,15 +71,16 @@ class Clinica_HorariosController extends Zend_Controller_Action{
        $this->_helper->layout->disableLayout();
        $horarios = new Model_DbTable_Horarios();
        $this->view->dados = $horarios->getListHorarios($this->_getParam('id'));
-
-           
-    }    
+    }
     
     public function dlAction(){
- 	$this->_helper->layout->disableLayout();
-        $this->_helper->viewRenderer->setNoRender();        
+        $this->_helper->layout->disableLayout();        
         $horarios = new Model_DbTable_Horarios();
-        $horarios->dl($this->_getParam('id'));        
+        $horarios->dl($this->_getParam('id'));
+        $this->_helper->viewRenderer('horarios/list-horarios', null, true);         
+        $horarios = new Model_DbTable_Horarios();
+        $this->view->dados = $horarios->getListHorarios($this->_getParam('id_medico'));
+       
     }
     
 }

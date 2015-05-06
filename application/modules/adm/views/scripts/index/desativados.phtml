@@ -1,0 +1,61 @@
+<?php $this->headLink()->setSeparator(PHP_EOL)->appendStylesheet($this->baseUrl('/css/adm.css')); ?>
+<?php $this->headScript()->setSeparator(PHP_EOL)->prependFile($this->baseUrl('/js/adm/admin.js')); ?>
+<div align="center" class="columnContainer clearFix"><span class="title">Administração</span></p></div>
+<div class="columnContainer clearFix"></div>
+<div class="columnContainer clearFix">
+    <div class="content">
+        <div class="grade">
+            <div class="data">Pendentes de Ativação</div>
+            <div class="horarios">
+                <table cellspacing="5" cellpadding="0" border="0">
+                   
+                    <thead>
+                    <tr>
+                        <th>ativo</th><th>nome</th> <th>cnpj</th> <th>responsável</th>  <th>senha</th> <th>e-mail</th> <th>status</th>
+                    </tr>
+                   </thead>
+                   <?php if(isset($this->dados)):
+                        foreach ($this->dados as $row):
+                       
+                    ?>
+                   
+                    <tr>
+                       
+                       <?php if($row['ativo'] == 1): 
+                           $style = NULL;
+                       ?>
+                       <td>Sim</td>
+                       
+                       <?php  else:                              
+                              $style = 'style="color:red;"'
+                        ?>
+                       <td style="color:red">Não</td>
+                       <?php endif; ?>
+                       
+                        <td <?php echo $style ?> ><?php echo $row['nome'] ?></td>
+                        <td <?php echo $style ?>><?php echo $row['cnpj'] ?></td>
+                        <td <?php echo $style ?>><?php echo $row['responsavel'] ?></td>                           
+                        <td <?php echo $style ?>><input type="button" id="<?php echo $row['id_clinica'] ?>" value="enviar" ></td>
+                        <td <?php echo $style ?>><?php echo $row['email'] ?></td>
+                        
+                       <?php if($row['ativo'] == 1): ?>
+                        <td><a href="/adm/index/ativar/id/<?php echo $row['id_clinica']?>/set/false">desativar</a></td>                       
+                       <?php else: ?>
+                       <td><a href="/adm/index/ativar/id/<?php echo $row['id_clinica']?>/set/true">ativar</a></td>
+                       <?php endif; ?>                        
+                        
+                    </tr>               
+                   
+                   
+                   
+                   <?php
+                        endforeach;
+                   endif;
+                   ?>                                               
+                </table>
+            </div>
+            <div class="line"></div>
+
+        </div>        
+    </div>
+</div>

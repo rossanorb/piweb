@@ -9,7 +9,7 @@ class Model_DbTable_clinicas extends Zend_Db_Table_Abstract{
         $this->db = $this->getAdapter();
     }    
 
-    public function newClinica($formFields){        
+    public function newClinica($formFields){
         $this->id = $this->insert(array(
             'ativo' => false,
             'logo' => NULL,
@@ -22,17 +22,10 @@ class Model_DbTable_clinicas extends Zend_Db_Table_Abstract{
             'bairro' => $formFields['bairro'],
             'cep' => $formFields['cep'],
             'telefone' => $formFields['telefone'],
+            'email' => $formFields['email'],
             'senha' => md5(102030)
         ));
         
-        $medicos = new Model_DbTable_medicos();
-        $lista =  $medicos->getMedicos();
-        
-        // vincula todos os médicos cadastrados no sistema a nova clinica
-        foreach ($lista as $medico){
-            $sql = "Insert into clinicas_medicos (id_medico, id_clinica) VALUES ( {$medico['id_medico']}, {$this->id} ) ";
-            $this->db->query($sql);
-        }
                 
         return $this->id;
     }
@@ -49,6 +42,16 @@ class Model_DbTable_clinicas extends Zend_Db_Table_Abstract{
     }
 
     public function authenticate($formFields){
+        $row = $this->fetchRow("cnpj Like '{$formFields['cnpj']}' ");
+        if(sizeof($row)>0){            
+            $clinica = $row->toArray();
+        }else{            
+            return false;
+        }        
+        
+        if($clinica['ativo'] == NULL || $clinica['ativo'] == 0 ) return false;
+        
+        
         $auth = Zend_Auth::getInstance();        
         $authAdapter = new Zend_Auth_Adapter_DbTable( $this->db,'clinicas','cnpj','senha','MD5(?)');        
         $authAdapter->setIdentity($formFields['cnpj']);
@@ -67,7 +70,8 @@ class Model_DbTable_clinicas extends Zend_Db_Table_Abstract{
             case Zend_Auth_Result::SUCCESS:
                  $id_clinica = $this->getIdClinica($formFields['cnpj']);                 
                  $session = new Zend_Session_Namespace('session');                    
-                 $session->id_clinica = $id_clinica;                
+                 $session->id_clinica = $id_clinica;
+                 $session->tipo = 'CLINICA';
                  return true;
                 break;
 
@@ -77,6 +81,23 @@ class Model_DbTable_clinicas extends Zend_Db_Table_Abstract{
         }
         
     }
-   
     
+    public function getListaInativos(){
+        $sql = "SELECT * FROM clinicas WHERE ativo = 0 order by nome ";
+        $query = $this->db->query($sql);
+        $rows = $query->fetchAll();       
+        return $rows;
+    }
+    
+    public function getLista(){
+       $sql = "SELECT * FROM clinicas order by nome";
+       $query = $this->db->query($sql);
+       $rows = $query->fetchAll();       
+       return $rows;
+    }
+    
+    public function Setstatus($st, $id_clinica){
+         $this->update(array('ativo'=> ( $st=='true' ? 1:0 ) ), " id_clinica = $id_clinica ");
+    }
+   
 }

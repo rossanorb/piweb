@@ -1,0 +1,73 @@
+<?php $this->headLink()->setSeparator(PHP_EOL)->appendStylesheet($this->baseUrl('/css/adm.css')); ?>
+<?php $this->headScript()->setSeparator(PHP_EOL)->prependFile($this->baseUrl('/js/adm/admin.js')); ?>
+<div class="columnContainer clearFix" align="center"><span class="title">Vincular M&eacute;dico</span></div>
+<div class="columnContainer clearFix">
+    <div class="select-container">
+        <div class="dropdown">
+            <?php  if(isset($this->lista_medicos)):?>
+                    <select name="medicos" id="vincular-medico"> 
+                        
+                <?php  if($this->id == NULL):?>       
+                        <option value="0">selecione médico...</option>
+                <?php endif;?>        
+                        
+                <?php   foreach ($this->lista_medicos as $row): ?>
+                        
+                        <?php      if( $this->id == $row['id_medico'] ): ?>
+                                        <option selected="selected" value="<?php echo $row['id_medico'] ?>"><?php echo $row['nome'] ?></option>
+                        <?php       else: ?>
+                                        <option value="<?php echo $row['id_medico'] ?>"><?php echo $row['nome'] ?></option>
+                        <?php       endif; ?>
+                                
+                <?php   endforeach; ?>
+                            
+                    </select> 
+            <?php endif; ?>            
+        </div>
+    </div>
+</div>
+<div class="columnContainer clearFix">
+    <div class="content">
+        <div class="grade">
+            
+            <div class="data">Clínicas</div>
+            <div class="horarios">
+                <table cellspacing="5" cellpadding="0" border="0">
+                   
+                    <thead>
+                    <tr>
+                        <th>vincular</th><th>nome</th> 
+                    </tr>
+                   </thead>
+                   <?php
+                   if(isset($this->dados)):
+                        foreach ($this->dados as $row):
+                    ?>
+                   
+                    <tr>
+                       
+                       <?php if($row['has_clinica'] == 1 && $row['status'] == 1 ):
+                           $style = NULL;
+                       ?>
+                        <td><input type="checkbox" checked="checked" id="<?php echo $row['id_clinica']?>" value="<?php echo $row['id_clinicas_medicos'] ?>" ></td>
+                       
+                       <?php  else:
+                           $style = 'style="color:red;"'
+                        ?>
+                       <td><input type="checkbox" id="<?php echo $row['id_clinica'] ?>" ></td>
+                       <?php endif; ?>
+                       
+                        <td <?php echo $style ?> ><?php echo $row['clinica_nome'] ?></td>
+                        
+                    </tr>
+                   
+                   <?php
+                        endforeach;
+                   endif;
+                   ?>                                               
+                </table>
+            </div>
+            <div class="line"></div>            
+        </div>        
+    </div>
+</div>

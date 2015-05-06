@@ -1,0 +1,35 @@
+<?php $this->headLink()->setSeparator(PHP_EOL)->appendStylesheet($this->baseUrl('/css/adm.css')); ?>
+<?php $this->headScript()->setSeparator(PHP_EOL)->prependFile($this->baseUrl('/js/adm/admin.js')); ?>
+<div class="columnContainer clearFix" align="center"><span class="title">Edi&ccedil;&atilde;o de dados M&eacute;dicos</span></div>
+<div class="columnContainer clearFix">
+    <div class="select-container">
+        <div class="dropdown">
+            <?php  if(isset($this->lista_medicos)):?>
+                    <select name="medicos" id="editar-medico"> 
+                        
+                <?php  if($this->id == NULL):?>       
+                        <option value="0">selecione médico...</option>
+                <?php endif;?>        
+                        
+                <?php   foreach ($this->lista_medicos as $row): ?>
+                        
+                        <?php      if( $this->id == $row['id_medico'] ): ?>
+                                        <option selected="selected" value="<?php echo $row['id_medico'] ?>"><?php echo $row['nome'] ?></option>
+                        <?php       else: ?>
+                                        <option value="<?php echo $row['id_medico'] ?>"><?php echo $row['nome'] ?></option>
+                        <?php       endif; ?>
+                                
+                <?php   endforeach; ?>
+                            
+                    </select> 
+            <?php endif; ?>            
+        </div>
+    </div>
+</div>
+<div class="columnContainer clearFix">
+    <div class="content" align="center">
+        <div style="width: 394px;text-align: left;">   
+        <?php echo $this->form; ?>
+        </div>    
+    </div>
+</div>

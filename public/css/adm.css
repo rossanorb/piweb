@@ -2,7 +2,6 @@
     float: none;
     margin: auto;
     min-height: 225px;
-  //  width: 600px;
    width: 960px;
 }
 
@@ -38,16 +37,6 @@ thead{
     color: #fff;
 }
 
-input[type="submit"] {
-    padding: 5px 7px;
-    margin-bottom: 5px;
-}
-
-input#disabled {
-    padding: 5px 7px;
-    margin-bottom: 5px;
-    background-color: #c0c0c0;
-}
 
 .grade .line {
     background-color: #49809c;
@@ -58,7 +47,11 @@ input#disabled {
     width: 960px;
 }
 
-#ui-datepicker-div{
-    font: 75.5% "Trebuchet MS", sans-serif;
+.select-container{
+    width: 100%;
+    margin:auto;
 }
 
+.dropdown{
+    margin: auto;
+}

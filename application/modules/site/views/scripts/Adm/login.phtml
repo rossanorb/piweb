@@ -1,0 +1,15 @@
+<?php  $this->headScript()->setSeparator(PHP_EOL)->prependFile($this->baseUrl('/js/site/index/login.js')); ?>
+<div  align="center" class="columnContainer clearFix">
+<span class="info">
+    <p>área restrita a administradores</p>
+</span></div>
+<div class="columnContainer clearFix">
+    <div class="content">       
+        <div id="login_cliente_title">Administra&ccedil;&atilde;o <?php echo $this->erro ?></div>
+        <div id="login_cliente" >
+        <?php echo $this->form ?>    
+        </div>
+        
+    </div>    
+</div>
+<div class="columnContainer clearFix"></div> 
